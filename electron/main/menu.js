@@ -78,16 +78,17 @@ const template = [
                 accelerator: isMac ? 'Command+,': null,
             },
             { type: 'separator' },
-            { role: 'services' },
+            { role: 'services', label: '服务' },
             { type: 'separator' },
-            { role: 'hide' },
-            { role: 'hideOthers' },
-            { role: 'unhide' },
+            { role: 'hide', label: '隐藏' },
+            { role: 'hideOthers', label: '隐藏其他' },
+            { role: 'unhide', label: '全部显示' },
             { type: 'separator' },
-            { role: 'quit' }
+            { role: 'quit', label: '退出' }
         ]
     }] : [{
         role: 'fileMenu',
+        label: '文件',
         submenu: [
             changeBufferMenuItem,
             {
@@ -121,23 +122,23 @@ const template = [
             deleteBlockMenuItem,
             moveBlockMenuItem,
             { type: 'separator' },
-            { role: 'cut' },
-            { role: 'copy' },
-            { role: 'paste' },
+            { role: 'cut', label: '剪切' },
+            { role: 'copy', label: '复制' },
+            { role: 'paste', label: '粘贴' },
             ...(isMac ? [
-                { role: 'pasteAndMatchStyle' },
-                { role: 'delete' },
+                { role: 'pasteAndMatchStyle', label: '粘贴并匹配样式' },
+                { role: 'delete', label: '删除' },
                 selectAllMenuItem,
                 { type: 'separator' },
                 {
                     label: '语音',
                     submenu: [
-                        { role: 'startSpeaking' },
-                        { role: 'stopSpeaking' }
+                        { role: 'startSpeaking', label: '开始朗读' },
+                        { role: 'stopSpeaking', label: '停止朗读' }
                     ]
                 }
             ] : [
-                { role: 'delete' },
+                { role: 'delete', label: '删除' },
                 { type: 'separator' },
                 selectAllMenuItem,
             ])
@@ -147,44 +148,47 @@ const template = [
     {
         label: '视图',
         submenu: [
-            { role: 'reload' },
-            { role: 'forceReload' },
-            { role: 'toggleDevTools' },
+            { role: 'reload', label: '重新加载' },
+            { role: 'forceReload', label: '强制重新加载' },
+            { role: 'toggleDevTools', label: '切换开发者工具' },
             { type: 'separator' },
-            { role: 'resetZoom' },
+            { role: 'resetZoom', label: '重置缩放' },
             {
                 accelerator: 'CommandOrControl+=',
                 role: "zoomIn",
+                label: '放大',
                 visible: false
             },
             {
                 accelerator: 'CmdOrCtrl+Plus',
                 role: "zoomIn",
+                label: '放大',
                 visible: true
             },
-            { role: 'zoomOut' },
+            { role: 'zoomOut', label: '缩小' },
             { type: 'separator' },
-            { role: 'togglefullscreen' }
+            { role: 'togglefullscreen', label: '切换全屏' }
         ]
     },
     // { role: 'windowMenu' }
     {
         label: '窗口',
         submenu: [
-            { role: 'minimize' },
-            { role: 'zoom' },
+            { role: 'minimize', label: '最小化' },
+            { role: 'zoom', label: '缩放' },
             ...(isMac ? [
                 { type: 'separator' },
-                { role: 'front' },
+                { role: 'front', label: '全部置前' },
                 { type: 'separator' },
-                { role: 'window' }
+                { role: 'window', label: '窗口' }
             ] : [
-                { role: 'close' }
+                { role: 'close', label: '关闭' }
             ])
         ]
     },
     {
         role: 'help',
+        label: '帮助',
         submenu: [
             {
                 label: '文档',
@@ -232,9 +236,9 @@ export function getEditorContextMenu(win) {
         undoMenuItem,
         redoMenuItem,
         {type: 'separator'},
-        {role: 'cut'},
-        {role: 'copy'},
-        {role: 'paste'},
+        {role: 'cut', label: '剪切'},
+        {role: 'copy', label: '复制'},
+        {role: 'paste', label: '粘贴'},
         {type: 'separator'},
         selectAllMenuItem,
         {type: 'separator'},
