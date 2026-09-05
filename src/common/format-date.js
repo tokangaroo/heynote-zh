@@ -14,13 +14,19 @@ export function formatDate(date, locale) {
         });
     }
 
-    // Yesterday: show "Yesterday, <time>"
+    // Yesterday: show "<Yesterday>, <time>"（按区域设置本地化，如 zh-CN 显示"昨天"）
     if (diffDays === 1) {
         const time = date.toLocaleTimeString(locale, {
             hour: "2-digit",
             minute: "2-digit"
         });
-        return `Yesterday ${time}`;
+        let yesterday = "Yesterday";
+        try {
+            yesterday = new Intl.RelativeTimeFormat(locale, { numeric: "auto" }).format(-1, "day");
+        } catch (e) {
+            // 区域设置不支持时回退到英文
+        }
+        return `${yesterday} ${time}`;
     }
 
     // Otherwise: full date + time, omit year if same
