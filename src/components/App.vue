@@ -277,7 +277,7 @@
             />
             <BufferSelector 
                 v-if="showMoveToBufferSelector" 
-                headline="移动区块到…"
+                headline="移动区块"
                 :commandsEnabled="false"
                 @openBuffer="onMoveCurrentBlockToOtherEditor"
                 @openCreateBuffer="(nameSuggestion) => openCreateBuffer('currentBlock', nameSuggestion)"

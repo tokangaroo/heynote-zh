@@ -134,7 +134,7 @@
                     }
                     
                     const newNoteItem = {
-                        name: "新建笔记…", 
+                        name: "新建笔记",
                         createNew:true,
                     }
                     return [

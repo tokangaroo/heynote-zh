@@ -7,9 +7,13 @@ import { getLanguageName } from "@/src/common/language-code/language-code"
 
 const isMac = process.platform === "darwin"
 
+// Windows/Linux 原生菜单中"菜单文字"与右侧快捷键的间距按最长行计算且不可配置，
+// 通过给带快捷键的菜单项追加全角空格来拉开间距（macOS 菜单由系统排版，无需处理）
+const ACCEL_PAD = isMac ? "" : "\u3000"
+
 
 const undoMenuItem = {
-    label: '撤销',
+    label: '撤销' + ACCEL_PAD,
     accelerator: 'CommandOrControl+z',
     click: (menuItem, window, event) => {
         window?.webContents.send(UNDO_EVENT)
@@ -17,7 +21,7 @@ const undoMenuItem = {
 }
 
 const redoMenuItem = {
-    label: '重做',
+    label: '重做' + ACCEL_PAD,
     accelerator: 'CommandOrControl+Shift+z',
     click: (menuItem, window, event) => {
         window?.webContents.send(REDO_EVENT)
@@ -25,7 +29,7 @@ const redoMenuItem = {
 }
 
 const selectAllMenuItem = {
-    label: '全选',
+    label: '全选' + ACCEL_PAD,
     accelerator: 'CommandOrControl+a',
     click: (menuItem, window, event) => {
         window?.webContents.send(SELECT_ALL_EVENT)
@@ -33,7 +37,7 @@ const selectAllMenuItem = {
 }
 
 const deleteBlockMenuItem = {
-    label: '删除区块',
+    label: '删除区块' + ACCEL_PAD,
     accelerator: 'CommandOrControl+Shift+D',
     click: (menuItem, window, event) => {
         window?.webContents.send(DELETE_BLOCK_EVENT)
@@ -41,7 +45,7 @@ const deleteBlockMenuItem = {
 }
 
 const moveBlockMenuItem = {
-    label: '将区块移动到其他笔记…',
+    label: '移动区块' + ACCEL_PAD,
     accelerator: 'CommandOrControl+S',
     click: (menuItem, window, event) => {
         window?.webContents.send(MOVE_BLOCK_EVENT)
@@ -49,7 +53,7 @@ const moveBlockMenuItem = {
 }
 
 const changeBufferMenuItem = {
-    label: '切换笔记…',
+    label: '切换笔记' + ACCEL_PAD,
     accelerator: 'CommandOrControl+P',
     click: (menuItem, window, event) => {
         window?.webContents.send(CHANGE_BUFFER_EVENT)
@@ -271,13 +275,13 @@ export function getTabContextMenu(win, tabPath) {
 
     menuItems.push(
         {
-            label: '打开笔记…',
+            label: '打开笔记',
             click: () => {
                 win?.webContents.send('tab:openNew')
             },
         },
         {
-            label: '新建笔记…',
+            label: '新建笔记',
             click: () => {
                 win?.webContents.send('tab:createNew')
             },
