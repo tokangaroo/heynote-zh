@@ -69,14 +69,14 @@ class Language {
 export const LANGUAGES = [
     new Language({
         token: "text",
-        name: "纯文本",
+        name: "Plain Text",
         parser: null,
         guesslang: null,
         inheritIndentation: true,
     }),
     new Language({
         token: "math",
-        name: "数学",
+        name: "Math",
         parser: mathjsLanguage.parser,
         guesslang: null,
         inheritIndentation: true,

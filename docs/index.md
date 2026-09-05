@@ -33,7 +33,7 @@ Heynote 的缓冲区划分为多个区块（Block），每个区块都可以设�
 
 <!-- keyboard_shortcuts -->
 
-**Mac 上**
+**On Mac**
 
 ```
 ⌘ + Enter           在当前区块下方添加新区块
@@ -56,7 +56,7 @@ Heynote 的缓冲区划分为多个区块（Block），每个区块都可以设�
 ⌘ + ⌥ + .           切换区块折叠状态
 ```
 
-**Windows 和 Linux 上**
+**On Windows and Linux**
 
 ```
 Ctrl + Enter           在当前区块下方添加新区块
@@ -79,7 +79,8 @@ Ctrl + Alt + ]         展开区块
 Ctrl + Alt + .         切换区块折叠状态
 ```
 
-你可以在命令面板以及"设置 → 快捷键"中查看所有按键绑定。
+You can see all the key bindings in the command palette and in Settings under Key Bindings.
+
 
 
 
