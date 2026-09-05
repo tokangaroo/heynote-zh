@@ -587,6 +587,29 @@
                     select
                         height: 22px
                         margin: 4px 0
+                        font-family: inherit
+                        font-size: 12px
+                        font-weight: normal
+                        color: inherit
+                        background: #fff
+                        border: 1px solid #c5c5c5
+                        border-radius: 3px
+                        &:focus
+                            outline: none
+                            border-color: #48b57e
+                        +dark-mode
+                            background: #3b3b3b
+                            color: rgba(255,255,255, 0.9)
+                            border-color: #5a5a5a
+                        option
+                            font-family: inherit
+                            font-size: 12px
+                            font-weight: normal
+                            background: #fff
+                            color: #333
+                            +dark-mode
+                                background: #3b3b3b
+                                color: rgba(255,255,255, 0.9)
                     .row
                         display: flex
                         .entry

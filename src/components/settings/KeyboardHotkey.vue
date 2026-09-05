@@ -157,6 +157,7 @@
 <style lang="sass" scoped>
     .keyboard-hotkey
         display: flex
+        align-items: center
         padding: 7px
         border-radius: 3px
         border: 1px solid #c4c4c4
@@ -171,9 +172,35 @@
         .modifier
             margin-right: 5px
             user-select: none
+            display: flex
+            align-items: center
+            height: 22px
+            cursor: pointer
             .text
-                position: relative
-                top: -2px
+                margin-left: 1px
         select
             margin-right: 5px
+            font-family: inherit
+            font-size: 12px
+            font-weight: normal
+            color: inherit
+            background: #fff
+            border: 1px solid #c5c5c5
+            border-radius: 3px
+            &:focus
+                outline: none
+                border-color: #48b57e
+            option
+                font-family: inherit
+                font-size: 12px
+                font-weight: normal
+                background: #fff
+                color: #333
+                +dark-mode
+                    background: #3b3b3b
+                    color: rgba(255,255,255, 0.9)
+            +dark-mode
+                background: #3b3b3b
+                color: rgba(255,255,255, 0.9)
+                border-color: #5a5a5a
 </style>
