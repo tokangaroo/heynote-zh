@@ -40,7 +40,8 @@
         "arch": [
           "x64"
         ]
-      }
+      },
+      "zip"
     ],
     "artifactName": "${productName}_${version}.${ext}",
     "icon": "public/icon.ico"
