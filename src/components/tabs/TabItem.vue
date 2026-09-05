@@ -92,14 +92,21 @@
     li
         app-region: none
         position: relative
-        height: 24px
+        box-sizing: border-box
+        display: flex
+        align-items: center
+        justify-content: center
+        height: 30px
         margin-top: 0px
         margin-right: 3px
-        padding: 6px 20px 0px 20px
         cursor: pointer
         border-radius: 5px 5px 0 0
         user-select: none
-        color: rgba(0,0,0, 0.5)
+        color: rgba(0,0,0, 0.55)
+        background: rgba(0,0,0, 0.05)
+        border: 1px solid rgba(0,0,0, 0.15)
+        border-bottom: none
+        padding: 0 19px
         overflow: hidden
         flex-grow: 0
         flex-shrink: 1
@@ -109,10 +116,9 @@
         transition: background-color 250ms
         //font-weight: 600
         +dark-mode
-            color: rgba(255, 255, 255, 0.3)
-            height: 23px
-            margin-top: 1px
-            padding-top: 5px
+            color: rgba(255, 255, 255, 0.4)
+            background: rgba(255, 255, 255, 0.06)
+            border-color: rgba(255, 255, 255, 0.14)
         &.short
             width: 120px
         &.long
@@ -121,17 +127,16 @@
         &.active
             background: var(--tab-active-bg)
             color: rgba(0,0,0, 0.9)
-            border: 1px solid #dbdbdb
+            border: 1px solid rgba(0,0,0, 0.15)
             border-bottom: none
-            padding: 5px 19px 0px 19px
-            box-shadow: var(--tab-bar-inset-shadow)
+            box-shadow: inset 0 2px 0 var(--highlight-color)
             transition: none
             .blurred &
                 background: var(--tab-active-bg-blurred)
             +dark-mode
                 color: rgba(255, 255, 255, 0.8)
                 border: none
-                padding: 5px 20px 0px 20px
+                box-shadow: inset 0 2px 0 var(--highlight-color), var(--tab-bar-inset-shadow)
                 //border-bottom: 1px solid #191d25
                 //border-color: transparent
             .close
@@ -150,8 +155,10 @@
                 color: rgba(255, 255, 255, 0.9)
             &.active
                 background: var(--tab-active-bg)
+                box-shadow: inset 0 2px 0 var(--highlight-color)
                 +dark-mode
                     background: var(--tab-active-bg)
+                    box-shadow: inset 0 2px 0 var(--highlight-color), var(--tab-bar-inset-shadow)
             .close
                 display: block
         
