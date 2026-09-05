@@ -152,7 +152,8 @@ async function createWindow() {
             titleBarOverlay: {
                 color: nativeTheme.shouldUseDarkColors ? TITLE_BAR_BG_DARK : TITLE_BAR_BG_LIGHT,
                 symbolColor: nativeTheme.shouldUseDarkColors ? '#aaa' : '#333',
-            }, 
+                height: 29,
+            },
         } : {})
     }, windowConfig))
 
@@ -222,6 +223,7 @@ async function createWindow() {
             win?.setTitleBarOverlay({
                 color: nativeTheme.shouldUseDarkColors ? TITLE_BAR_BG_DARK : TITLE_BAR_BG_LIGHT,
                 symbolColor: nativeTheme.shouldUseDarkColors ? '#aaa' : '#333',
+                height: 29,
             })
         }
     })
@@ -234,6 +236,7 @@ async function createWindow() {
             win?.setTitleBarOverlay({
                 color: nativeTheme.shouldUseDarkColors ? TITLE_BAR_BG_DARK_BLURRED : TITLE_BAR_BG_LIGHT_BLURRED,
                 symbolColor: nativeTheme.shouldUseDarkColors ? '#aaa' : '#333',
+                height: 29,
             })
         }
     })
@@ -456,6 +459,7 @@ ipcMain.handle('dark-mode:set', (event, mode) => {
         win?.setTitleBarOverlay({
             color: nativeTheme.shouldUseDarkColors ? TITLE_BAR_BG_DARK : TITLE_BAR_BG_LIGHT,
             symbolColor: nativeTheme.shouldUseDarkColors ? '#aaa' : '#333',
+            height: 29,
         })
     }
 })
