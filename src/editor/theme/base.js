@@ -109,9 +109,9 @@ export const heynoteBase = EditorView.theme({
         opacity: 1,
     },
     '.cm-cursor, .cm-dropCursor': {
-        borderLeftWidth:'2px', 
-        paddingTop: '4px',
-        marginTop: '-2px',
+        borderLeftWidth: '2px',
+        paddingTop: '0px',
+        marginTop: '0px',
         boxSizing: 'content-box',
     },
     '.cm-highlightSpace': {
