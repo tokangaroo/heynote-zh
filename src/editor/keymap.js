@@ -240,7 +240,7 @@ export function getKeyBindingLabel(binding, emacsMetaKey, separator=" ") {
                 case "Meta":
                     return window.heynote.platform.isMac ? "⌘" : "Meta"
                 case "Shift":
-                    return "⇧"
+                    return "Shift"
                 case "Control":
                     return "Ctrl"
             }

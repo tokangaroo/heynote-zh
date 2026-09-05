@@ -225,6 +225,31 @@ const HEYNOTE_COMMANDS = {
 }
 
 // selection mark-mode:ify all cursor/select commands from CodeMirror
+// 光标移动/选择命令的中文描述（cursor 命令与对应 select 命令成对出现）
+const CURSOR_COMMAND_DESCRIPTIONS = {
+    CharLeft: ["光标左移一个字符", "向左选择一个字符"],
+    CharRight: ["光标右移一个字符", "向右选择一个字符"],
+    CharBackward: ["光标后移一个字符", "向后选择一个字符"],
+    CharForward: ["光标前移一个字符", "向前选择一个字符"],
+    LineUp: ["光标上移一行", "向上选择一行"],
+    LineDown: ["光标下移一行", "向下选择一行"],
+    LineStart: ["光标移至行首", "选择到行首"],
+    LineEnd: ["光标移至行尾", "选择到行尾"],
+    GroupLeft: ["光标左移一个词组", "向左选择一个词组"],
+    GroupRight: ["光标右移一个词组", "向右选择一个词组"],
+    GroupForward: ["光标前移一个词组", "向前选择一个词组"],
+    GroupBackward: ["光标后移一个词组", "向后选择一个词组"],
+    PageUp: ["光标上移一页", "向上选择一页"],
+    PageDown: ["光标下移一页", "向下选择一页"],
+    SyntaxLeft: ["光标移至上一个语法节点", "选择到上一个语法节点"],
+    SyntaxRight: ["光标移至下一个语法节点", "选择到下一个语法节点"],
+    SubwordBackward: ["光标后移一个子词", "向后选择一个子词"],
+    SubwordForward: ["光标前移一个子词", "向前选择一个子词"],
+    LineBoundaryBackward: ["光标移至折行行首", "选择到折行行首"],
+    LineBoundaryForward: ["光标移至折行行尾", "选择到折行行尾"],
+    DocStart: ["光标移至文档开头", "选择到文档开头"],
+    DocEnd: ["光标移至文档结尾", "选择到文档结尾"],
+}
 for (let commandSuffix of [
     "CharLeft", "CharRight",
     "CharBackward", "CharForward",
@@ -241,13 +266,13 @@ for (let commandSuffix of [
     HEYNOTE_COMMANDS[`cursor${commandSuffix}`] = {
         run: markModeMoveCommand(codeMirrorCommands[`cursor${commandSuffix}`], codeMirrorCommands[`select${commandSuffix}`]),
         name: `cursor${commandSuffix}`,
-        description: `cursor${commandSuffix}`,
+        description: CURSOR_COMMAND_DESCRIPTIONS[commandSuffix]?.[0] || `cursor${commandSuffix}`,
         category: "光标",
     }
     HEYNOTE_COMMANDS[`select${commandSuffix}`] = {
         run: (editor) => codeMirrorCommands[`select${commandSuffix}`],
         name: `select${commandSuffix}`,
-        description: `select${commandSuffix}`,
+        description: CURSOR_COMMAND_DESCRIPTIONS[commandSuffix]?.[1] || `select${commandSuffix}`,
         category: "光标",
     }
 }
