@@ -126,9 +126,9 @@ const template = [
             deleteBlockMenuItem,
             moveBlockMenuItem,
             { type: 'separator' },
-            { role: 'cut', label: '剪切' },
-            { role: 'copy', label: '复制' },
-            { role: 'paste', label: '粘贴' },
+            { role: 'cut', label: '剪切', accelerator: 'CmdOrCtrl+X' },
+            { role: 'copy', label: '复制', accelerator: 'CmdOrCtrl+C' },
+            { role: 'paste', label: '粘贴', accelerator: 'CmdOrCtrl+V' },
             ...(isMac ? [
                 { role: 'pasteAndMatchStyle', label: '粘贴并匹配样式' },
                 { role: 'delete', label: '删除' },
@@ -142,7 +142,7 @@ const template = [
                     ]
                 }
             ] : [
-                { role: 'delete', label: '删除' },
+                { role: 'delete', label: '删除', accelerator: 'Delete' },
                 { type: 'separator' },
                 selectAllMenuItem,
             ])
@@ -156,7 +156,7 @@ const template = [
             { role: 'forceReload', label: '强制重新加载' },
             { role: 'toggleDevTools', label: '切换开发者工具' },
             { type: 'separator' },
-            { role: 'resetZoom', label: '重置缩放' },
+            { role: 'resetZoom', label: '重置缩放', accelerator: 'CmdOrCtrl+0' },
             {
                 accelerator: 'CommandOrControl+=',
                 role: "zoomIn",
@@ -169,7 +169,7 @@ const template = [
                 label: '放大',
                 visible: true
             },
-            { role: 'zoomOut', label: '缩小' },
+            { role: 'zoomOut', label: '缩小', accelerator: 'CmdOrCtrl+-' },
             { type: 'separator' },
             { role: 'togglefullscreen', label: '切换全屏' }
         ]

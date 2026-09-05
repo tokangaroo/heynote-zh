@@ -93,6 +93,11 @@ export class HeynoteEditor {
         const state = EditorState.create({
             doc: "",
             extensions: [
+                // CodeMirror 内置 UI 文案的中文翻译（如折叠栏悬停提示 Fold line / Unfold line）
+                EditorState.phrases.of({
+                    "Fold line": "折叠行",
+                    "Unfold line": "展开行",
+                }),
                 this.keymapCompartment.of(getKeymapExtensions(this, keymap, keyBindings)),
                 heynoteCopyCut(this),
                 heynoteDropPaste(),

@@ -115,7 +115,7 @@ export function foldGutterExtension() {
                     labelDom.textContent = label.slice(0, 100)
 
                     const linesDom = document.createElement("span")
-                    linesDom.textContent = `${label.slice(-1).trim() === "" ? '' : ' '}… (${lineCount} lines)`
+                    linesDom.textContent = `${label.slice(-1).trim() === "" ? '' : ' '}…（${lineCount} 行）`
                     linesDom.style.fontStyle = "italic"
                 
                     const dom = document.createElement("span")
