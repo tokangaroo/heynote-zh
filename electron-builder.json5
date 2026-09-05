@@ -1,0 +1,66 @@
+/**
+ * @see https://www.electron.build/configuration/configuration
+ */
+{
+  "appId": "com.heynote.app",
+  "asar": true,
+  "asarUnpack": [
+    "**/node_modules/@vscode/ripgrep/bin/**"
+  ],
+  //"icon": "public/favicon.ico",
+  "directories": {
+    "output": "release/${version}",
+    "buildResources": "resources"
+  },
+  "files": [
+    "dist-electron",
+    "dist"
+  ],
+  "mac": {
+    "artifactName": "${productName}_${version}_${arch}.${ext}",
+    "target": [
+      {
+        target: 'default',
+        arch: [
+          'x64',
+          'arm64',
+          'universal'
+        ]
+      }
+    ],
+    "publish": ["github"],
+    "category": "public.app-category.productivity",
+    "singleArchFiles": "**/node_modules/@vscode/ripgrep/bin/**",
+    "x64ArchFiles": "**/node_modules/@vscode/ripgrep/bin/rg",
+  },
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
+    "artifactName": "${productName}_${version}.${ext}",
+    "icon": "public/icon.ico"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "deleteAppDataOnUninstall": false
+  },
+
+  linux: {
+    synopsis: "A dedicated scratchpad for developers",
+    category: "Utility",
+  },
+  appImage: {
+    artifactName: "${productName}_${version}_${arch}.${ext}",
+  },
+  snap: {
+    artifactName: "${productName}_${version}_${arch}.${ext}",
+    publish: ["github"],
+  }
+}
