@@ -1,25 +1,15 @@
 <script>
     import { mapState } from 'pinia'
-    import UpdateStatusItem from './UpdateStatusItem.vue'
     import { LANGUAGES } from '../editor/languages.js'
     import { formatDate, formatFullDate } from '../common/format-date'
     import { useHeynoteStore } from "../stores/heynote-store"
     import { useSettingsStore } from "../stores/settings-store"
-    
+
     const LANGUAGE_MAP = Object.fromEntries(LANGUAGES.map(l => [l.token, l]))
     const LANGUAGE_NAMES = Object.fromEntries(LANGUAGES.map(l => [l.token, l.name]))
 
 
     export default {
-        props: [
-            "autoUpdate",
-            "allowBetaVersions",
-        ],
-
-        components: {
-            UpdateStatusItem,
-        },
-
         data() {
             return {
                 isWebApp: window.heynote.platform.isWebApp,
@@ -67,10 +57,6 @@
 
             formatBlockTitle() {
                 return `格式化区块内容 (Alt + Shift + F)`
-            },
-
-            updatesEnabled() {
-                return !!window.heynote.autoUpdate
             },
 
         formattedCreatedTime() {
@@ -161,12 +147,7 @@
             <span class="icon icon-format" :class="{'pinned': alwaysOnTop}"></span>
         </div>
 
-        <UpdateStatusItem 
-            v-if="updatesEnabled" 
-            :autoUpdate="autoUpdate"
-            :allowBetaVersions="allowBetaVersions"
-        />
-        <div 
+        <div
             @click.stop="$emit('openSettings')"
             class="status-block settings clickable"
             title="设置"

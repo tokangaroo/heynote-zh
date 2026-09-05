@@ -249,9 +249,7 @@
             class="editor"
             ref="editor"
         />
-        <StatusBar 
-            :autoUpdate="settings.autoUpdate"
-            :allowBetaVersions="settings.allowBetaVersions"
+        <StatusBar
             @openBufferSelector="openBufferSelector"
             @openLanguageSelector="openLanguageSelector"
             @formatCurrentBlock="formatCurrentBlock"

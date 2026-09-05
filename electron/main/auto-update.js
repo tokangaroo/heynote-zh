@@ -72,12 +72,9 @@ ipcMain.handle(UPDATE_INSTALL_AND_RESTART, () => {
 
 
 export function checkForUpdates() {
-    autoUpdater.allowPrerelease = CONFIG.get("settings.allowBetaVersions")
-    autoUpdater.checkForUpdates()
-    // for development, the autoUpdater will not work, so we need to trigger the event manually
-    if (process.env.NODE_ENV === "development") {
-        window?.webContents.send(UPDATE_NOT_AVAILABLE_EVENT)
-    }
+    // 此版本为汉化固定版本：已禁用自动更新。
+    // 升级到官方版本会导致全部汉化内容丢失，因此这里直接跳过更新检查。
+    return
 }
 
 ipcMain.handle(UPDATE_CHECK_FOR_UPDATES, () => {

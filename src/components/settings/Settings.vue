@@ -478,28 +478,10 @@
 
                         <div class="row" v-if="!isWebApp">
                             <div class="entry">
-                                <h2>自动更新</h2>
-                                <label>
-                                    <input 
-                                        type="checkbox" 
-                                        v-model="autoUpdate" 
-                                        @change="updateSettings"
-                                    />
-                                    定期检查新版本
-                                </label>
-                            </div>
-                        </div>
-                        <div class="row" v-if="!isWebApp">
-                            <div class="entry">
-                                <h2>测试版</h2>
-                                <label>
-                                    <input 
-                                        type="checkbox" 
-                                        v-model="allowBetaVersions" 
-                                        @change="updateSettings"
-                                    />
-                                    使用 Heynote 测试版
-                                </label>
+                                <h2>更新</h2>
+                                <p class="pinned-note">
+                                    本版本为汉化固定版本，已禁用自动更新，避免升级到官方版本后丢失汉化内容。
+                                </p>
                             </div>
                         </div>
                     </TabContent>
@@ -584,6 +566,12 @@
                     padding: 40px
                     overflow-y: auto
                     position: relative
+                    .pinned-note
+                        font-size: 12px
+                        line-height: 1.6
+                        color: rgba(0,0,0, 0.55)
+                        +dark-mode
+                            color: rgba(255,255,255, 0.55)
                     select
                         height: 22px
                         margin: 4px 0
