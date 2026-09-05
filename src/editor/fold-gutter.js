@@ -92,6 +92,9 @@ export function foldGutterExtension() {
 
     return [
         foldGutter({
+            // 使用更大的三角形符号（默认 ⌄/› 太小且宽度不一，点击后位置会漂移）
+            openText: "▾",
+            closedText: "▸",
             domEventHandlers: {
                 click(view, line, event) {
                     // editor should not loose focus when clicking on the fold gutter

@@ -107,6 +107,9 @@ const darkTheme = EditorView.theme({
         color: lineNumberColor,
         border: 'none',
     },
+    '.cm-lineNumbers': {
+        borderRight: '1px solid rgba(255,255,255, 0.1)',
+    },
     '.cm-activeLineGutter': {
         backgroundColor: "transparent",
         color: 'rgba(255,255,255, 0.6)'

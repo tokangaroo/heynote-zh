@@ -67,17 +67,45 @@ export const heynoteBase = EditorView.theme({
         padding: '0 2px 0 4px',
         userSelect: 'none',
     },
+    '.cm-lineNumbers': {
+        // 行号栏固定为 3 位数的宽度，避免行号进位时整栏自动变宽
+        minWidth: '30px !important',
+        // 与折叠栏之间的分隔线
+        borderRight: '1px solid rgba(0,0,0, 0.1)',
+        paddingRight: '3px',
+    },
+    '.cm-lineNumbers .cm-gutterElement': {
+        minWidth: '30px !important',
+    },
     '.cm-foldGutter': {
-        marginLeft: '0px',
+        // 折叠标记与行号栏保持间距，视觉上分离
+        marginLeft: '2px',
+    },
+    '.cm-foldGutter .cm-gutterElement': {
+        boxSizing: 'border-box',
+        width: '12px',
+        minWidth: '12px',
+        maxWidth: '12px',
+        padding: '0',
+        textAlign: 'center',
+    },
+    '.cm-foldGutter .cm-gutterElement span': {
+        // 列宽固定 + 居中：两种状态字符宽度略异也不会漂移
+        display: 'inline-block',
+        verticalAlign: 'middle',
+        fontSize: '15px',
+        lineHeight: '1',
+        borderRadius: '3px',
+        cursor: 'pointer',
     },
     '.cm-gutters .cm-gutterElement span': {
         opacity: 1,
         transition: "opacity 200ms",
     },
-    '.cm-foldGutter .cm-gutterElement span[title*="Fold"]': {
+    '.cm-foldGutter .cm-gutterElement span[title*="Fold"], .cm-foldGutter .cm-gutterElement span[title*="折叠"]': {
         opacity: 0,
     },
-    '.cm-gutters:hover .cm-gutterElement span[title*="Fold"]': {
+    '.cm-gutters:hover .cm-gutterElement span[title*="Fold"], .cm-gutters:hover .cm-gutterElement span[title*="折叠"]': {
         opacity: 1,
     },
     '.cm-cursor, .cm-dropCursor': {
