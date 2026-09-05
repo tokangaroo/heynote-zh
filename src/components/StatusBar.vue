@@ -168,6 +168,8 @@
         font-size: 12px
         padding-left: 0px
         padding-right: 0px
+        // 中文字形回退字体基线偏高，加 1px 顶部内边距使文字视觉垂直居中
+        padding-top: 1px
         display: flex
         flex-direction: row
         align-items: center

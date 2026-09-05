@@ -76,6 +76,9 @@ export const heynoteBase = EditorView.theme({
     },
     '.cm-lineNumbers .cm-gutterElement': {
         minWidth: '30px !important',
+        // 纯视觉偏移，不改变列宽
+        position: 'relative',
+        left: '-1px',
     },
     '.cm-foldGutter': {
         // 折叠标记与行号栏保持间距，视觉上分离
