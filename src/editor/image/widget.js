@@ -93,7 +93,7 @@ export class ImageWidget extends WidgetType {
         buttonsContainer.className = "buttons-container"
         inner.appendChild(buttonsContainer)
         const copyButton = document.createElement("button")
-        copyButton.innerHTML = "<span>Copy</span>"
+        copyButton.innerHTML = "<span>复制</span>"
         buttonsContainer.appendChild(copyButton)
         copyButton.addEventListener("mousedown", (event) => {
             event.preventDefault()
@@ -101,9 +101,9 @@ export class ImageWidget extends WidgetType {
         copyButton.addEventListener("click", async (event) => {
             event.preventDefault()
             await copyImage(img.src)
-            copyButton.innerText = "Copied!"
+            copyButton.innerText = "已复制！"
             setTimeout(() => {
-                copyButton.innerText = "Copy"
+                copyButton.innerText = "复制"
             }, 2000)
         })
         
@@ -115,7 +115,7 @@ export class ImageWidget extends WidgetType {
 
         const drawButton = document.createElement("button")
         drawButton.className = "draw"
-        drawButton.innerHTML = "<span>Draw</span>"
+        drawButton.innerHTML = "<span>绘图</span>"
         buttonsContainer.appendChild(drawButton)
         drawButton.addEventListener("mousedown", (event) => {
             event.preventDefault()

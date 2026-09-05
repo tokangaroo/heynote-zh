@@ -636,14 +636,14 @@
                             :class="{ active: !isDrawingMode }"
                             :disabled="isLoading"
                             @click="setDrawingMode(false)"
-                            title="Select"
+                            title="选择"
                         ></button>
                         <button
                             class="mode draw-mode"
                             :class="{ active: isDrawingMode }"
                             :disabled="isLoading"
                             @click="setDrawingMode(true)"
-                            title="Paint Brush"
+                            title="画笔"
                         ></button>
                     </div>
                     <div class="button-group">
@@ -661,9 +661,9 @@
                             :class="{ active: isShadowEnabled }"
                             :disabled="isLoading"
                             @click="toggleBrushShadow"
-                            title="Drop Shadow"
+                            title="投影"
                         ></button>
-                        <div class="brush-dropdown" ref="brushMenu" title="Brush Size">
+                        <div class="brush-dropdown" ref="brushMenu" title="画笔大小">
                             <button
                                 class="brush-toggle"
                                 :disabled="isLoading"
@@ -692,14 +692,14 @@
                 </div>
                 <div class="header-tools">
                     <div class="history-controls">
-                        <button class="history undo" @click="undo" :disabled="historyIndex <= 0 || isLoading" title="Undo"></button>
-                        <button class="history redo" @click="redo" :disabled="historyIndex >= history.length - 1 || isLoading" title="Redo"></button>
+                        <button class="history undo" @click="undo" :disabled="historyIndex <= 0 || isLoading" title="撤销"></button>
+                        <button class="history redo" @click="redo" :disabled="historyIndex >= history.length - 1 || isLoading" title="重做"></button>
                     </div>
                     <div class="zoom-controls">
                         <button class="zoom zoom-out" @click="zoomOut" :disabled="isLoading"></button>
                         <div class="zoom-value">{{ Math.round(baseScale * zoom * 100) }}%</div>
                         <button class="zoom zoom-in" @click="zoomIn" :disabled="isLoading"></button>
-                        <button class="zoom reset" @click="resetZoom" :disabled="isLoading" title="Reset Zoom"></button>
+                        <button class="zoom reset" @click="resetZoom" :disabled="isLoading" title="重置缩放"></button>
                     </div>
                 </div>
             </div>
@@ -712,11 +712,11 @@
                 >
                     <canvas ref="canvas"></canvas>
                 </div>
-                <div v-if="loadError" class="error">Failed to load image.</div>
+                <div v-if="loadError" class="error">图片加载失败。</div>
             </div>
             <div class="bottom-bar" ref="bottomBar">
-                <button @click="$emit('close')" class="close">Cancel</button>
-                <button @click="saveImage" class="save" :disabled="isLoading">Save</button>
+                <button @click="$emit('close')" class="close">取消</button>
+                <button @click="saveImage" class="save" :disabled="isLoading">保存</button>
             </div>
         </div>
         <div class="shader"></div>

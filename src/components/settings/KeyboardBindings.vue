@@ -45,7 +45,7 @@
                     key: km.key,
                     command: km.command,
                     isDefault: true,
-                    source: this.settings.keymap === "emacs" ? "Emacs" : "Default",
+                    source: this.settings.keymap === "emacs" ? "Emacs" : "默认",
                     scope: km.scope,
                 }))
 
@@ -54,7 +54,7 @@
                         key: km.key,
                         command: km.command,
                         isDefault: true,
-                        source: "Default",
+                        source: "默认",
                         scope: km.scope,
                     }))
                 )
@@ -90,13 +90,13 @@
 <template>
     <div class="container">
         <div class="header" :inert="addKeyBinding">
-            <h2>Keyboard Bindings</h2>
+            <h2>键盘快捷键</h2>
             <!--<p>User key bindings can be reordered. Bindings that appear first take precedence</p>-->
             <div class="button-container">
                 <button 
                     class="add-keybinding"
                     @click="addKeyBinding = !addKeyBinding"
-                >Add Keybinding</button>
+                >添加快捷键</button>
             </div>
         </div>
         
@@ -109,9 +109,9 @@
         <table :inert="addKeyBinding">
             <thead>
                 <tr>
-                    <th>Source</th>
-                    <th>Key</th>
-                    <th>Command</th>
+                    <th>来源</th>
+                    <th>按键</th>
+                    <th>命令</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -133,7 +133,7 @@
                         :isDefault="element.isDefault"
                         :index="index"
                         @delete="deleteKeyBinding(index)"
-                        source="User"
+                        source="用户"
                     />
                 </template>
             </draggable>

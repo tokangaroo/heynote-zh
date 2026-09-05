@@ -11,7 +11,7 @@
     }).sort((a, b) => {
         return a.name.localeCompare(b.name)
     })
-    items.unshift({token: "auto", name:"Auto-detect"})
+    items.unshift({token: "auto", name:"自动检测"})
 
     items.forEach((item, idx) => {
         item.preparedName = fuzzysort.prepare(item.name)

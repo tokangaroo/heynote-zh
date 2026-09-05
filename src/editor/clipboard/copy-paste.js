@@ -267,11 +267,11 @@ export async function copyImage(url) {
                     if (result) {
                         resolve(result)
                     } else {
-                        reject(new Error("Failed to convert image to PNG"))
+                        reject(new Error("图片转换为 PNG 失败"))
                     }
                 }, "image/png")
             }
-            img.onerror = () => reject(new Error("Failed to decode image"))
+            img.onerror = () => reject(new Error("图片解码失败"))
             img.src = blobUrl
         }).finally(() => {
             URL.revokeObjectURL(blobUrl)

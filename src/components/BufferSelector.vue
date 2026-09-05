@@ -134,7 +134,7 @@
                     }
                     
                     const newNoteItem = {
-                        name: "Create new…", 
+                        name: "新建笔记…", 
                         createNew:true,
                     }
                     return [
@@ -331,7 +331,7 @@
                                 class="binding"
                             > {{ binding }}</span>
                             <span v-if="item.bindings.length > 2" class="more">
-                                and {{ item.bindings.length - 2 }} more
+                                还有 {{ item.bindings.length - 2 }} 个…
                             </span>
                         </span>
                         <span :class="{'action-buttons':true, 'visible':actionButton > 0 && idx === selected}">
@@ -339,17 +339,17 @@
                                 v-if="actionButton > 0 && idx === selected"
                                 :class="{'selected':actionButton === 1}"
                                 @click.stop.prevent="editBufferMetadata(item.path)"
-                            >Edit</button>
+                            >编辑</button>
                             <button 
                                 v-if="actionButton > 0 && idx === selected"
                                 :class="{'delete':true, 'selected':actionButton === 2, 'confirm':deleteConfirm}"
                                 @click.stop.prevent="deleteConfirmNote(item.path)"
                             >
                                 <template v-if="deleteConfirm">
-                                    Really Delete?
+                                    确认删除？
                                 </template>
                                 <template v-else>
-                                    Delete
+                                    删除
                                 </template>
                             </button>
                             <button

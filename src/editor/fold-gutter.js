@@ -134,7 +134,7 @@ export function foldGutterExtension() {
                             const createdDom = document.createElement("span")
                             createdDom.className = "created-time"
                             createdDom.textContent = formatDate(date, heynoteStore.systemLocale)
-                            createdDom.title = "Created " + formatFullDate(date, heynoteStore.systemLocale)
+                            createdDom.title = "创建于 " + formatFullDate(date, heynoteStore.systemLocale)
                             dom.appendChild(createdDom)
                         }
                     }

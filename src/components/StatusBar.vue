@@ -66,7 +66,7 @@
             },
 
             formatBlockTitle() {
-                return `Format Block Content (Alt + Shift + F)`
+                return `格式化区块内容 (Alt + Shift + F)`
             },
 
             updatesEnabled() {
@@ -84,7 +84,7 @@
             if (!this.currentCreatedTime) {
                 return null
             }
-            return "Block created " +  formatFullDate(this.currentCreatedTime, this.systemLocale)
+            return "区块创建于 " +  formatFullDate(this.currentCreatedTime, this.systemLocale)
         },
     },
 
@@ -105,10 +105,10 @@
 <template>
     <div :class="className">
         <div class="status-block line-number">
-            Ln <span class="num">{{ currentCursorLine?.line }}</span>
-            Col <span class="num">{{ currentCursorLine?.col }}</span>
+            行 <span class="num">{{ currentCursorLine?.line }}</span>
+            列 <span class="num">{{ currentCursorLine?.col }}</span>
             <template v-if="currentSelectionSize > 0">
-                Sel <span class="num">{{ currentSelectionSize }}</span>
+                选中 <span class="num">{{ currentSelectionSize }}</span>
             </template>
         </div>
         <div 
@@ -121,23 +121,23 @@
         <div 
             @click.stop="$emit('openBufferSelector')"
             class="status-block note clickable"
-            :title="getTooltip('Change Note', 'openBufferSelector')"
+            :title="getTooltip('切换笔记', 'openBufferSelector')"
         >
             {{ currentBufferName }} 
         </div>
         <div 
             @click.stop="$emit('openLanguageSelector')"
             class="status-block lang clickable"
-            :title="getTooltip('Change language for current block', 'openLanguageSelector')"
+            :title="getTooltip('更改当前区块的语言', 'openLanguageSelector')"
         >
             {{ languageName }} 
-            <span v-if="currentLanguageAuto" class="auto">(auto)</span>
+            <span v-if="currentLanguageAuto" class="auto">(自动)</span>
         </div>
         <div 
             v-if="supportsFormat"
             @click.stop="$emit('formatCurrentBlock')"
             class="status-block format clickable"
-            :title="getTooltip('Format Block Content', 'formatBlockContent')"
+            :title="getTooltip('格式化区块内容', 'formatBlockContent')"
         >
             <span class="icon icon-format"></span>
         </div>
@@ -146,7 +146,7 @@
             @mousedown.prevent
             @contextmenu="onSpellcheckingContextMenu"
             :class="'status-block spellcheck clickable' + (this.spellcheckEnabled ? ' spellcheck-enabled' : '')"
-            :title="getTooltip('Spellchecking', 'toggleSpellcheck')"
+            :title="getTooltip('拼写检查', 'toggleSpellcheck')"
         >
             <span class="icon icon-format"></span>
         </div>
@@ -156,7 +156,7 @@
             @click.stop="$emit('toggleAlwaysOnTop')"
             @mousedown.prevent
             class="status-block pin clickable"
-            :title="getTooltip('Pin', 'toggleAlwaysOnTop')"
+            :title="getTooltip('置顶', 'toggleAlwaysOnTop')"
         >
             <span class="icon icon-format" :class="{'pinned': alwaysOnTop}"></span>
         </div>
@@ -169,7 +169,7 @@
         <div 
             @click.stop="$emit('openSettings')"
             class="status-block settings clickable"
-            title="Settings"
+            title="设置"
         >
             <span class="icon icon-format"></span>
         </div>

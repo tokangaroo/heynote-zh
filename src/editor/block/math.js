@@ -30,7 +30,7 @@ class MathResult extends WidgetType {
             navigator.clipboard.writeText(this.copyResult)
             const copyElement = document.createElement("i")
             copyElement.className = "heynote-math-result-copied"
-            copyElement.innerHTML = "Copied!"
+            copyElement.innerHTML = "已复制！"
             wrap.appendChild(copyElement)
             copyElement.offsetWidth // trigger reflow so that the animation is shown
             copyElement.className = "heynote-math-result-copied fade-out"

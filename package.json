@@ -2,7 +2,7 @@
   "name": "Heynote",
   "version": "2.8.2",
   "main": "dist-electron/main/index.js",
-  "description": "A dedicated scratch pad",
+  "description": "开发者的专属便签本",
   "author": "Jonatan Heyman (https://heyman.info)",
   "license": "Commons Clause MIT",
   "private": true,

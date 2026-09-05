@@ -85,11 +85,11 @@
         computed: {
             statusText() {
                 if (this.downloading) {
-                    return "Downloading update… " + this.updateProgress.percent.toFixed(0) + "%"
+                    return "正在下载更新… " + this.updateProgress.percent.toFixed(0) + "%"
                 } else if (this.updateDownloaded) {
-                    return "Update & Restart"
+                    return "更新并重启"
                 } else if (this.updateAvailable) {
-                    return "New version available!"
+                    return "发现新版本！"
                 } else {
                     return ""
                 }
@@ -99,11 +99,11 @@
                 if (this.downloading) {
                     return ""
                 } else if (this.updateDownloaded) {
-                    return "Click to restart and update Heynote"
+                    return "点击重启并更新 Heynote"
                 } else if (this.updateAvailable) {
-                    return "Update to version " + this.version + " (current version: " + this.currentVersion + ")"
+                    return "更新到版本 " + this.version + "（当前版本：" + this.currentVersion + "）"
                 } else {
-                    return "Check for updates"
+                    return "检查更新"
                 }
             },
 

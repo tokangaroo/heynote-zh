@@ -34,7 +34,7 @@
             // build directory tree
             const directories = await window.heynote.buffer.getDirectoryList()
             const rootNode = {
-                name: "Heynote Root",
+                name: "Heynote 根目录",
                 path: "",
                 children: [],
                 open: true,
@@ -167,9 +167,9 @@
     <div class="fader" @keydown.stop="onKeydown" tabindex="-1">
         <form class="new-note" tabindex="-1" @focusout="onFocusOut" ref="container" @submit.prevent="submit">
             <div class="container">
-                <h1>Edit Buffer</h1>
+                <h1>编辑笔记</h1>
                 <input 
-                    placeholder="Name"
+                    placeholder="名称"
                     type="text" 
                     v-model="name"
                     :class="nameInputClass"
@@ -178,7 +178,7 @@
                     @input="errors.name = false"
                 />
 
-                <label for="folder-select">Move to</label>
+                <label for="folder-select">移动到</label>
                 <FolderSelector 
                     v-if="directoryTree"
                     :directoryTree="directoryTree"
@@ -189,12 +189,12 @@
                 />
             </div>
             <div class="bottom-bar">
-                <button type="submit">Update Buffer</button>
+                <button type="submit">保存修改</button>
                 <button 
                     class="cancel"
                     @keydown="onCancelKeydown"
                     @click.stop.prevent="cancel"
-                >Cancel</button>
+                >取消</button>
             </div>
         </form>
     </div>

@@ -52,7 +52,7 @@
                 v-if="!isDefault"
                 @click="$emit('delete')"
                 class="delete"
-            >Delete</button>
+            >删除</button>
         </td>
 
         <td v-if="!isDefault" class="drag-handle"></td>

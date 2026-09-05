@@ -31,7 +31,7 @@
             //console.log("settings:", this.initialSettings)
             return {
                 keymaps: [
-                    { name: "Default", value: "default" },
+                    { name: "默认", value: "default" },
                     { name: "Emacs", value: "emacs" },
                 ],
                 keymap: this.initialSettings.keymap,
@@ -60,7 +60,7 @@
                 languageOptions: LANGUAGES.map(l => {
                     return {
                         "value": l.token, 
-                        "name": l.token == "text" ? l.name + " (default)" : l.name,
+                        "name": l.token == "text" ? l.name + "（默认）" : l.name,
                     }
                 }).sort((a, b) => {
                     return a.name.localeCompare(b.name)
@@ -71,7 +71,7 @@
                 activeTab: "general",
                 isWebApp: window.heynote.platform.isWebApp,
                 customBufferLocation: !!this.initialSettings.bufferPath,
-                systemFonts: [[defaultFontFamily, defaultFontFamily + " (default)"]],
+                systemFonts: [[defaultFontFamily, defaultFontFamily + "（默认）"]],
                 defaultFontSize: defaultFontSize,
                 appVersion: "",
                 theme: this.themeSetting,
@@ -89,7 +89,7 @@
             if (window.queryLocalFonts !== undefined) {
                 let localFonts = [... new Set((await window.queryLocalFonts()).map(f => f.family))].filter(f => f !== "Hack")
                 localFonts = [...new Set(localFonts)].map(f => [f, f])
-                this.systemFonts = [[defaultFontFamily, defaultFontFamily + " (default)"], ...localFonts]
+                this.systemFonts = [[defaultFontFamily, defaultFontFamily + "（默认）"], ...localFonts]
             }
         },
         beforeUnmount() {
@@ -171,34 +171,34 @@
         <div class="dialog">
             <div class="dialog-content">
                 <nav class="sidebar">
-                    <h1>Settings</h1>
+                    <h1>设置</h1>
                     <ul>
                         <TabListItem 
-                            name="General" 
+                            name="通用" 
                             tab="general" 
                             :activeTab="activeTab" 
                             @click="activeTab = 'general'"
                         />
                         <TabListItem 
-                            name="Editing" 
+                            name="编辑" 
                             tab="editing"
                             :activeTab="activeTab" 
                             @click="activeTab = 'editing'"
                         />
                         <TabListItem 
-                            name="Appearance" 
+                            name="外观" 
                             tab="appearance"
                             :activeTab="activeTab" 
                             @click="activeTab = 'appearance'"
                         />
                         <TabListItem 
-                            name="Key Bindings" 
+                            name="快捷键" 
                             tab="keyboard-bindings" 
                             :activeTab="activeTab" 
                             @click="activeTab = 'keyboard-bindings'"
                         />
                         <TabListItem 
-                            :name="isWebApp ? 'Version' : 'Updates'" 
+                            :name="isWebApp ? '版本' : '更新'" 
                             tab="updates" 
                             :activeTab="activeTab" 
                             @click="activeTab = 'updates'"
@@ -209,14 +209,14 @@
                     <TabContent tab="general" :activeTab="activeTab">
                         <div class="row" v-if="!isWebApp">
                             <div class="entry">
-                                <h2>Global Keyboard Shortcut</h2>
+                                <h2>全局快捷键</h2>
                                 <label class="keyboard-shortcut-label">
                                     <input 
                                         type="checkbox" 
                                         v-model="enableGlobalHotkey" 
                                         @change="updateSettings"
                                     />
-                                    Enable Global Hotkey
+                                    启用全局快捷键
                                 </label>
                                 
                                 <KeyboardHotkey 
@@ -228,14 +228,14 @@
                         </div>
                         <div class="row" v-if="!isWebApp">
                             <div class="entry">
-                                <h2>Window / Application</h2>
+                                <h2>窗口 / 应用</h2>
                                 <label v-if="isMac">
                                     <input
                                         type="checkbox"
                                         v-model="showInDock"
                                         @change="updateSettings"
                                     />
-                                    Show in dock
+                                    在 Dock 中显示
                                 </label>
                                 <label>
                                     <input
@@ -245,10 +245,10 @@
                                         @change="updateSettings"
                                     />
                                     <template v-if="isMac">
-                                        Show in menu bar
+                                        在菜单栏中显示
                                     </template>
                                     <template v-else>
-                                        Show in system tray
+                                        在系统托盘中显示
                                     </template>
                                 </label>
                                 <label>
@@ -257,26 +257,26 @@
                                         v-model="alwaysOnTop"
                                         @change="updateSettings"
                                     />
-                                    Always on top
+                                    窗口置顶
                                 </label>
                             </div>
                         </div>
                         <div class="row" v-if="!isWebApp">
                             <div class="entry buffer-location">
-                                <h2>Buffer Files Path</h2>
+                                <h2>笔记文件路径</h2>
                                 <label class="keyboard-shortcut-label">
                                     <input 
                                         type="checkbox" 
                                         v-model="customBufferLocation" 
                                         @change="onCustomBufferLocationChange"
                                     />
-                                    Use custom location for the buffer files
+                                    自定义笔记文件的存储位置
                                 </label>
                                 <div class="file-path">
                                     <button
                                         :disabled="!customBufferLocation"
                                         @click="selectBufferLocation"
-                                    >Select Directory</button>
+                                    >选择目录</button>
                                     <span class="path" v-show="customBufferLocation && bufferPath">{{ bufferPath }}</span>
                                 </div>
                             </div>
@@ -286,40 +286,40 @@
                     <TabContent tab="editing" :activeTab="activeTab">
                         <div class="row">
                             <div class="entry">
-                                <h2>Input settings</h2>
+                                <h2>输入设置</h2>
                                 <label>
                                     <input 
                                         type="checkbox"
                                         v-model="bracketClosing"
                                         @change="updateSettings"
                                     />
-                                    Auto-close brackets and quotation marks
+                                    自动闭合括号和引号
                                 </label>
                             </div>  
                         </div>
                         <div class="row">
                             <div class="entry">
-                                <h2>Tab Size</h2>
+                                <h2>缩进宽度</h2>
                                 <select v-model="tabSize" @change="updateSettings" class="tab-size">
                                     <option
                                         v-for="size in [1, 2, 3, 4, 5, 6, 7, 8]"
                                         :key="size"
                                         :selected="tabSize === size"
                                         :value="size"
-                                    >{{ size }} {{ size === 1 ? 'space' : 'spaces' }}</option>
+                                    >{{ size }} 个空格</option>
                                 </select>
                             </div>
                             <div class="entry">
-                                <h2>Indent Using</h2>
+                                <h2>缩进方式</h2>
                                 <select v-model="indentType" @change="updateSettings" class="indent-type">
-                                    <option value="space" :selected="indentType === 'space'">Spaces</option>
-                                    <option value="tab" :selected="indentType === 'tab'">Tabs</option>
+                                    <option value="space" :selected="indentType === 'space'">空格</option>
+                                    <option value="tab" :selected="indentType === 'tab'">Tab 字符</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row">
                             <div class="entry">
-                                <h2>Default Block Language</h2>
+                                <h2>默认区块语言</h2>
                                 <select v-model="defaultBlockLanguage" @change="updateSettings" class="block-language">
                                     <template v-for="lang in languageOptions" :key="lang.value">
                                         <option :selected="lang.value === defaultBlockLanguage" :value="lang.value">{{ lang.name }}</option>
@@ -332,7 +332,7 @@
                                         @change="updateSettings"
                                         class="language-auto-detect"
                                     />
-                                    Auto-detection (default: on)
+                                    自动检测（默认开启）
                                 </label>
                             </div>  
                         </div>
@@ -341,24 +341,24 @@
                     <TabContent tab="appearance" :activeTab="activeTab">
                         <div class="row">
                             <div class="entry">
-                                <h2>Color Theme</h2>
+                                <h2>颜色主题</h2>
                                 <select v-model="theme" @change="updateSettings" class="theme">
-                                    <option :selected="theme === 'system'" value="system">System</option>
-                                    <option :selected="theme === 'light'" value="light">Light</option>
-                                    <option :selected="theme === 'dark'" value="dark">Dark</option>
+                                    <option :selected="theme === 'system'" value="system">跟随系统</option>
+                                    <option :selected="theme === 'light'" value="light">浅色</option>
+                                    <option :selected="theme === 'dark'" value="dark">深色</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row">
                             <div class="entry">
-                                <h2>Gutters & Whitespace</h2>
+                                <h2>行号槽与空白字符</h2>
                                 <label>
                                     <input 
                                         type="checkbox" 
                                         v-model="showLineNumberGutter" 
                                         @change="updateSettings"
                                     />
-                                    Show line numbers
+                                    显示行号
                                 </label>
                                 
                                 <label>
@@ -367,7 +367,7 @@
                                         v-model="showFoldGutter" 
                                         @change="updateSettings"
                                     />
-                                    Show fold gutter
+                                    显示折叠栏
                                 </label>
 
                                 <label>
@@ -376,13 +376,13 @@
                                         v-model="showWhitespace" 
                                         @change="updateSettings"
                                     />
-                                    Show white-space
+                                    显示空白字符
                                 </label>
                             </div>
                         </div>
                         <div class="row font-settings">
                             <div class="entry">
-                                <h2>Font Family</h2>
+                                <h2>字体</h2>
                                 <select v-model="fontFamily" @change="updateSettings" class="font-family">
                                     <option
                                         v-for="[font, label] in systemFonts"
@@ -392,25 +392,25 @@
                                 </select>
                             </div>
                             <div class="entry">
-                                <h2>Font Size</h2>
+                                <h2>字号</h2>
                                 <select v-model="fontSize" @change="updateSettings" class="font-size">
                                     <option
                                         v-for="size in [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]"
                                         :selected="size === fontSize"
                                         :value="size"
-                                    >{{ size }}px{{ size === defaultFontSize ? " (default)" : "" }}</option>
+                                    >{{ size }}px{{ size === defaultFontSize ? "（默认）" : "" }}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row">
                             <div class="entry">
-                                <h2>Cursor Blink Rate</h2>
+                                <h2>光标闪烁频率</h2>
                                 <select v-model.number="cursorBlinkRate" @change="updateSettings" class="cursor-blink-rate">
-                                    <option :value="0">Off</option>
+                                    <option :value="0">关闭</option>
                                     <option :value="250">250 ms</option>
                                     <option :value="500">500 ms</option>
                                     <option :value="750">750 ms</option>
-                                    <option :value="1000">1000 ms (default)</option>
+                                    <option :value="1000">1000 ms（默认）</option>
                                     <option :value="1250">1250 ms</option>
                                     <option :value="1500">1500 ms</option>
                                     <option :value="2000">2000 ms</option>
@@ -420,14 +420,14 @@
 
                         <div class="row">
                             <div class="entry">
-                                <h2>Tabs</h2>
+                                <h2>标签页</h2>
                                 <label>
                                     <input 
                                         type="checkbox" 
                                         v-model="showTabs" 
                                         @change="updateSettings"
                                     />
-                                    Show tabs
+                                    显示标签页
                                 </label>
                                 
                                 <label>
@@ -437,7 +437,7 @@
                                         @change="updateSettings"
                                         :disabled="!showTabs"
                                     />
-                                    Show tabs in fullscreen mode
+                                    全屏模式下显示标签页
                                 </label>
                             </div>
                         </div>
@@ -446,7 +446,7 @@
                     <TabContent tab="keyboard-bindings" :activeTab="activeTab">
                         <div class="row">
                             <div class="entry">
-                                <h2>Keymap</h2>
+                                <h2>键位模式</h2>
                                 <select v-model="keymap" @change="updateSettings" class="keymap">
                                     <template v-for="km in keymaps" :key="km.value">
                                         <option :selected="km.value === keymap" :value="km.value">{{ km.name }}</option>
@@ -454,7 +454,7 @@
                                 </select>
                             </div>
                             <div class="entry" v-if="keymap === 'emacs' && isMac">
-                                <h2>Meta Key</h2>
+                                <h2>Meta 键</h2>
                                 <select v-model="metaKey" @change="updateSettings" class="metaKey">
                                     <option :selected="metaKey === 'meta'" value="meta">Command</option>
                                     <option :selected="metaKey === 'alt'" value="alt">Option</option>
@@ -471,34 +471,34 @@
                     <TabContent tab="updates" :activeTab="activeTab">
                         <div class="row">
                             <div class="entry">
-                                <h2>Current Version</h2>
+                                <h2>当前版本</h2>
                                 <b>{{ appVersion }}</b>
                             </div>
                         </div>
 
                         <div class="row" v-if="!isWebApp">
                             <div class="entry">
-                                <h2>Auto Update</h2>
+                                <h2>自动更新</h2>
                                 <label>
                                     <input 
                                         type="checkbox" 
                                         v-model="autoUpdate" 
                                         @change="updateSettings"
                                     />
-                                    Periodically check for new updates
+                                    定期检查新版本
                                 </label>
                             </div>
                         </div>
                         <div class="row" v-if="!isWebApp">
                             <div class="entry">
-                                <h2>Beta Versions</h2>
+                                <h2>测试版</h2>
                                 <label>
                                     <input 
                                         type="checkbox" 
                                         v-model="allowBetaVersions" 
                                         @change="updateSettings"
                                     />
-                                    Use beta versions of Heynote
+                                    使用 Heynote 测试版
                                 </label>
                             </div>
                         </div>
@@ -510,7 +510,7 @@
                 <button 
                     @click="$emit('closeSettings')"
                     class="close"
-                >Close</button>
+                >关闭</button>
             </div>
         </div>
         <div class="shader"></div>

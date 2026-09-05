@@ -40,7 +40,7 @@
             // build directory tree
             const directories = await window.heynote.buffer.getDirectoryList()
             const rootNode = {
-                name: "Heynote Root",
+                name: "Heynote 根目录",
                 path: "",
                 children: [],
                 open: true,
@@ -92,7 +92,7 @@
             },
 
             dialogTitle() {
-                return this.createBufferParams.mode === "currentBlock" ? "Move Block to New Buffer" : "New Buffer"
+                return this.createBufferParams.mode === "currentBlock" ? "将区块移动到新笔记" : "新建笔记"
             },
         },
 
@@ -184,7 +184,7 @@
             <div class="container">
                 <h1>{{ dialogTitle }}</h1>
                 <input 
-                    placeholder="Name"
+                    placeholder="名称"
                     type="text" 
                     v-model="name"
                     :class="nameInputClass"
@@ -195,7 +195,7 @@
                     data-1p-ignore
                 />
 
-                <label for="folder-select">Create in</label>
+                <label for="folder-select">创建位置</label>
                 <FolderSelector 
                     v-if="directoryTree"
                     :directoryTree="directoryTree"
@@ -206,12 +206,12 @@
                 />
             </div>
             <div class="bottom-bar">
-                <button type="submit">Create New Buffer</button>
+                <button type="submit">创建新笔记</button>
                 <button 
                     class="cancel"
                     @keydown="onCancelKeydown"
                     @click.stop.prevent="cancel"
-                >Cancel</button>
+                >取消</button>
             </div>
         </form>
     </div>

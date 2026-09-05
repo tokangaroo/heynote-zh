@@ -1,178 +1,175 @@
-# Heynote Documentation
+# Heynote 文档
 
-[Changelog](/docs/changelog/)
+[更新日志](/docs/changelog/)
 
-Heynote is a dedicated scratchpad. It functions as a large persistent text buffer where you can write down anything you like. Works great for that Slack message you don't want to accidentally send, a JSON response from an API you're working with, notes from a meeting, your daily to-do list, etc. 
+Heynote 是一款专属便签本。它就像一个大型的持久化文本缓冲区，你可以随手记录任何内容。非常适合用来写那条不想误发的 Slack 消息、调试接口时的 JSON 响应、会议笔记、每日待办清单等等。
 
-The Heynote buffer is divided into blocks, and each block can have its own mode set (e.g. JavaScript, JSON, Markdown, etc.). This gives you syntax highlighting and lets you auto-format that JSON response.
+Heynote 的缓冲区划分为多个区块（Block），每个区块都可以设置自己的模式（如 JavaScript、JSON、Markdown 等）。这让你可以获得语法高亮，还能自动格式化 JSON 响应。
 
-Available for Mac, Windows, and Linux.
+支持 Mac、Windows 和 Linux。
 
-## Features
+## 功能特性
 
--   Persistent text buffer(s)
--   Block-based
--   Inline images
--   Multiple buffers in tabs
--   Math/Calculator mode
--   Currency conversion
--   Syntax highlighting:
+-   持久化文本缓冲区
+-   基于区块（Block）组织内容
+-   内联图片
+-   多笔记多标签页
+-   数学/计算器模式
+-   货币换算
+-   语法高亮：
 
-    C++, C#, Clojure, CSS, Elixir, Erlang, Dart, Go, Groovy, HTML, Java, JavaScript, JSX, Kotlin, TypeScript, TOML, TSX, JSON, Lezer, Markdown, PHP, Python, Ruby, Rust, Scala, Shell, SQL, Swift, Vue, XML, YAML
-    
--   Language auto-detection
--   Auto-formatting
--   Multi-cursor editing
--   Dark & Light themes
--   Option to set a global hotkey to show/hide the app
--   Default, Emacs-like or custom key bindings
--   Spellchecking
+    C++、C#、Clojure、CSS、Elixir、Erlang、Dart、Go、Groovy、HTML、Java、JavaScript、JSX、Kotlin、TypeScript、TOML、TSX、JSON、Lezer、Markdown、PHP、Python、Ruby、Rust、Scala、Shell、SQL、Swift、Vue、XML、YAML
+
+-   语言自动检测
+-   自动格式化
+-   多光标编辑
+-   深色与浅色主题
+-   可设置显示/隐藏应用的全局快捷键
+-   默认、类 Emacs 或自定义按键绑定
+-   拼写检查
 
 
-## Default Key Bindings<a id="default-key-bindings"></a>
+## 默认按键绑定<a id="default-key-bindings"></a>
 
 <!-- keyboard_shortcuts -->
 
-**On Mac**
+**Mac 上**
 
 ```
-⌘ + Enter           Add new block below the current block
-⌥ + Enter           Add new block before the current block
-⌘ + Shift + Enter   Add new block at the end of the buffer
-⌥ + Shift + Enter   Add new block at the start of the buffer
-⌘ + ⌥ + Enter       Split the current block at cursor position
-⌘ + L               Change block language
-⌘ + N               Create a new note buffer
-⌘ + S               Move the current block to another (or new) buffer
-⌘ + P               Open note selector
-⌘ + Shift + P       Open command palette
-⌘ + Down            Goto next block
-⌘ + Up              Goto previous block
-⌘ + A               Select all text in a note block. Press again to select the whole buffer
-⌘ + ⌥ + Up/Down     Add additional cursor above/below
-⌥ + Shift + F       Format block content (works for JSON, JavaScript, HTML, CSS and Markdown)
-⌘ + ⌥ + [           Fold block(s)
-⌘ + ⌥ + ]           Unfold block(s)
-⌘ + ⌥ + .           Toggle block fold
+⌘ + Enter           在当前区块下方添加新区块
+⌥ + Enter           在当前区块上方添加新区块
+⌘ + Shift + Enter   在笔记末尾添加新区块
+⌥ + Shift + Enter   在笔记开头添加新区块
+⌘ + ⌥ + Enter       在光标位置拆分当前区块
+⌘ + L               更改区块语言
+⌘ + N               新建笔记
+⌘ + S               将当前区块移动到其他（或新的）笔记
+⌘ + P               打开笔记选择器
+⌘ + Shift + P       打开命令面板
+⌘ + Down            跳转到下一个区块
+⌘ + Up              跳转到上一个区块
+⌘ + A               全选当前区块中的文本；再按一次选择整个笔记
+⌘ + ⌥ + Up/Down     在上方/下方添加光标
+⌥ + Shift + F       格式化区块内容（支持 JSON、JavaScript、HTML、CSS 和 Markdown）
+⌘ + ⌥ + [           折叠区块
+⌘ + ⌥ + ]           展开区块
+⌘ + ⌥ + .           切换区块折叠状态
 ```
 
-**On Windows and Linux**
+**Windows 和 Linux 上**
 
 ```
-Ctrl + Enter           Add new block below the current block
-Alt + Enter            Add new block before the current block
-Ctrl + Shift + Enter   Add new block at the end of the buffer
-Alt + Shift + Enter    Add new block at the start of the buffer
-Ctrl + Alt + Enter     Split the current block at cursor position
-Ctrl + L               Change block language
-Ctrl + N               Create a new note buffer
-Ctrl + S               Move the current block to another (or new) buffer
-Ctrl + P               Open note selector
-Ctrl + Shift + P       Open command palette
-Ctrl + Down            Goto next block
-Ctrl + Up              Goto previous block
-Ctrl + A               Select all text in a note block. Press again to select the whole buffer
-Ctrl + Alt + Up/Down   Add additional cursor above/below
-Alt + Shift + F        Format block content (works for JSON, JavaScript, HTML, CSS and Markdown)
-Ctrl + Alt + [         Fold block(s)
-Ctrl + Alt + ]         Unfold block(s)
-Ctrl + Alt + .         Toggle block fold
+Ctrl + Enter           在当前区块下方添加新区块
+Alt + Enter            在当前区块上方添加新区块
+Ctrl + Shift + Enter   在笔记末尾添加新区块
+Alt + Shift + Enter    在笔记开头添加新区块
+Ctrl + Alt + Enter     在光标位置拆分当前区块
+Ctrl + L               更改区块语言
+Ctrl + N               新建笔记
+Ctrl + S               将当前区块移动到其他（或新的）笔记
+Ctrl + P               打开笔记选择器
+Ctrl + Shift + P       打开命令面板
+Ctrl + Down            跳转到下一个区块
+Ctrl + Up              跳转到上一个区块
+Ctrl + A               全选当前区块中的文本；再按一次选择整个笔记
+Ctrl + Alt + Up/Down   在上方/下方添加光标
+Alt + Shift + F        格式化区块内容（支持 JSON、JavaScript、HTML、CSS 和 Markdown）
+Ctrl + Alt + [         折叠区块
+Ctrl + Alt + ]         展开区块
+Ctrl + Alt + .         切换区块折叠状态
 ```
 
-You can see all the key bindings in the command palette and in Settings under Key Bindings.
+你可以在命令面板以及"设置 → 快捷键"中查看所有按键绑定。
 
 
 
-## Custom Key Bindings<a id="custom-key-bindings"></a>
+## 自定义按键绑定<a id="custom-key-bindings"></a>
 
-Heynote supports custom key bindings which you can configure in the settings. The key bindings are evaluated from top to bottom, so a binding that comes before another one will take precedence. Most commands will stop the event from propagating, but some commands only applies in certain contexts and might not stop the event from propagating to a later key binding. 
+Heynote 支持自定义按键绑定，你可以在设置中进行配置。按键绑定按从上到下的顺序生效，排在前面的绑定优先级更高。大多数命令会阻止事件继续传播，但有些命令只在特定上下文中生效，可能不会阻止事件传播到后面的按键绑定。
 
-To disable one of the built in key bindings, you can add a new key binding with the same key combination for the command "Do nothing". This will stop the event from propagating to the built in key binding.
+要禁用某个内置按键绑定，你可以为命令"无操作"（Do nothing）添加一个使用相同按键组合的新绑定。这样事件就不会传播到内置的按键绑定。
 
-You can see all available commands that can be bound to keys in the command palette which can be opened by pressing `⌘ + ⇧ + P` on Mac and `Ctrl + ⇧ + P` on Windows/Linux.
+你可以在命令面板中查看所有可绑定到按键的命令，命令面板可通过 Mac 上的 `⌘ + ⇧ + P`、Windows/Linux 上的 `Ctrl + ⇧ + P` 打开。
 
-## Download/Installation
+## 下载/安装
 
-Download the appropriate (Mac, Windows or Linux) version from [heynote.com](https://heynote.com). The Windows build is not signed, so you might see some scary warning (I can not justify paying a yearly fee for a certificate just to get rid of that).
+从 [heynote.com](https://heynote.com) 下载对应平台（Mac、Windows 或 Linux）的版本。Windows 版本未经签名，因此你可能会看到一些吓人的警告（为了消除这个警告而每年支付证书费用并不划算）。
 
-If installing Heynote on Linux in ChromeOS, see the [notes](#user-content-linux-on-chromeos) below about some packages that are needed.
+如果要在 ChromeOS 的 Linux 环境中安装 Heynote，请参阅下文关于[所需软件包](#user-content-linux-on-chromeos)的说明。
 
-On macOS, [Homebrew](https://brew.sh) users can utilize an unofficial [Homebrew Cask](https://formulae.brew.sh/cask/heynote#default): `brew install --cask heynote`
+macOS 上，[Homebrew](https://brew.sh) 用户可以使用非官方的 [Homebrew Cask](https://formulae.brew.sh/cask/heynote#default)：`brew install --cask heynote`
 
-## Math Blocks<a id="math-blocks"></a>
+## 数学区块<a id="math-blocks"></a>
 
-Heynote's Math blocks are powered by [Math.js expressions](https://mathjs.org/docs/expressions). Checkout their [documentation](https://mathjs.org/docs/) to see what [syntax](https://mathjs.org/docs/expressions/syntax.html), [functions](https://mathjs.org/docs/reference/functions.html), and [constants](https://mathjs.org/docs/reference/constants.html) are available.
+Heynote 的数学区块由 [Math.js 表达式](https://mathjs.org/docs/expressions)驱动。请查阅其[文档](https://mathjs.org/docs/)了解可用的[语法](https://mathjs.org/docs/expressions/syntax.html)、[函数](https://mathjs.org/docs/reference/functions.html)和[常量](https://mathjs.org/docs/reference/constants.html)。
 
-### Accessing the previous result
+### 访问上一个结果
 
-The variable `prev` can be used to access the previous result. For example:
+可以使用变量 `prev` 来访问上一个结果。例如：
 
 ```
 128
 prev * 2 # 256
 ```
 
-### Changing how the results of Math blocks are formatted
+### 更改数学区块结果的格式
 
-You can define a custom `format` function within the Math block like this:
+你可以在数学区块中定义自定义 `format` 函数，例如：
 
 ```
-_format = format # store reference to the built in format
+_format = format # 保存对内置 format 函数的引用
 format(x) = _format(x, {notation:"exponential"})
 ```
 
-You can also do something like this to show the number with your default locale or provide a [custom one](https://www.w3.org/International/articles/language-tags/):
+你也可以这样让数字以默认区域设置显示，或提供[自定义区域设置](https://www.w3.org/International/articles/language-tags/)：
 
 ```
 format(x) = x.toLocaleString();
 format(x) = x.toLocaleString('en-GB');
 ```
 
-See the [Math.js format()](https://mathjs.org/docs/reference/functions/format.html) function for more info on what's supported.
+有关支持的更多细节，请参阅 [Math.js format()](https://mathjs.org/docs/reference/functions/format.html) 函数。
 
-## Images
+## 图片
 
-Pasting image data from the clipboard will insert an inline image into the buffer. Internally, the image data is saved to a file 
-within [the notes library's](#user-content-the-notes-library) `.images` directory. Drag and dropping an image file will also insert the image 
-into the editor (a copy of the image will be placed in the `.images` directory).
+从剪贴板粘贴图片数据时，会在缓冲区中插入一张内联图片。图片数据在内部保存到[笔记库](#user-content-the-notes-library)的 `.images` 目录下的文件中。拖放图片文件也会将图片插入到编辑器中（图片的副本会被放入 `.images` 目录）。
 
-Images can be resized for display, but the underlying image data keeps its original dimensions. Issuing a copy command (`Ctrl/Cmd-C` with the 
-default key bindings) with the cursor next to an image will populate the system clipboard with the image data.
+图片可以在显示时调整大小，但底层的图片数据保持原始尺寸。当光标位于图片旁边时执行复制命令（默认按键绑定为 `Ctrl/Cmd-C`），系统剪贴板将被填充为该图片的数据。
 
 
-## The notes library<a id="the-notes-library"></a>
+## 笔记库<a id="the-notes-library"></a>
 
-The notes library is a directory (with sub dirs) on the disk with a `.txt` file for each buffer. It's created the first time you start Heynote, with the default buffer file `scratch.txt` in it. The default location for the library is:
+笔记库是磁盘上的一个目录（包含子目录），每个笔记对应一个 `.txt` 文件。首次启动 Heynote 时会自动创建，其中包含默认的笔记文件 `scratch.txt`。笔记库的默认位置为：
 
--   Mac: `~/Library/Application Support/Heynote/notes/`
--   Windows: `%APPDATA%\Heynote\notes\`
--   Linux: `~/.config/Heynote/notes/`
+-   Mac：`~/Library/Application Support/Heynote/notes/`
+-   Windows：`%APPDATA%\Heynote\notes\`
+-   Linux：`~/.config/Heynote/notes/`
 
-You can change the path of the notes library in the settings. Heynote expects reasonably fast disk access to the notes library, so it's not recommended to use a network drive, though file syncing services like Dropbox, OneDrive, etc. should work (see below).
+你可以在设置中更改笔记库的路径。Heynote 需要对笔记库有较快的磁盘访问速度，因此不建议使用网络驱动器，不过 Dropbox、OneDrive 等文件同步服务应该可以正常使用（见下文）。
 
-### Image storage
+### 图片存储
 
-Images are stored alongside your notes in a hidden `.images` folder inside the notes library directory. Each image is referenced from the buffer file, and the app uses those references to clean up older, unreferenced images over time. Cleanup runs on startup and only removes unreferenced images older than 24 hours (and only if there are any referenced images, as a safety check).
+图片与笔记一起存储在笔记库目录下的隐藏 `.images` 文件夹中。每张图片都从笔记文件中被引用，应用会利用这些引用随时间清理较旧的、未被引用的图片。清理在启动时运行，只会删除超过 24 小时且未被引用的图片（作为安全检查，只有存在被引用图片时才会执行清理）。
 
-### Synchronizing the notes library
+### 同步笔记库
 
-Heynote is built to support synchronizing the notes library (or buffer file in the case of Heynote 1.x) through file-syncing services like Dropbox, OneDrive, etc. However, note that the synchronization logic is quite simple, so editing the same buffer on two different machines at the same time might lead to conflicts and unexpected results.
+Heynote 的设计支持通过 Dropbox、OneDrive 等文件同步服务同步笔记库（Heynote 1.x 中则是缓冲区文件）。但请注意，同步逻辑比较简单，同时在两台不同的机器上编辑同一个笔记可能会导致冲突和意外结果。
 
-When using a file synching service that support "offloading" of files in the cloud (removing them from the disk), it's recommended to mark the notes library as "always available offline".
+使用支持云端"释放空间"（从磁盘移除文件）的文件同步服务时，建议将笔记库标记为"始终保留在此设备上"。
 
-As always, backup things that are important.
+一如既往，请务必备份重要内容。
 
 
-## Spellchecking
+## 拼写检查
 
-Spellchecking can be toggled on or off by clicking the spellchecking icon in the status bar. Right-clicking the icon on Windows and Linux allows you to select the active dictionaries (on Mac, the default OS dictionary is used).  
+点击状态栏中的拼写检查图标即可开启或关闭拼写检查。在 Windows 和 Linux 上，右键点击该图标可以选择启用的词典（Mac 上使用系统默认词典）。
 
 
 ## Linux<a id="linux"></a>
 
-### Linux on ChromeOS<a id="linux-on-chromeos"></a>
+### ChromeOS 上的 Linux<a id="linux-on-chromeos"></a>
 
-It's been reported [(#48)](https://github.com/heyman/heynote/issues/48) that ChromeOS's Debian VM need the following packages installed to run the Heynote AppImage:
+据反馈（[(#48)](https://github.com/heyman/heynote/issues/48)），ChromeOS 的 Debian 虚拟机需要安装以下软件包才能运行 Heynote AppImage：
 
 ```
 libfuse2
@@ -182,7 +179,7 @@ libnspr4
 
 ### Wayland
 
-Due to [an issue in Electron](https://github.com/electron/electron/issues/38288), the global hotkey will not work in all applications running under Wayland. In KDE it is possible to work around this limitation by adding this Kwin script:
+由于 [Electron 的一个问题](https://github.com/electron/electron/issues/38288)，全局快捷键在 Wayland 下并非在所有应用中都能生效。在 KDE 中，可以通过添加以下 Kwin 脚本来绕过这一限制：
 
 ```javascript
 function toggleHeynote() {
@@ -203,6 +200,6 @@ function toggleHeynote() {
 registerShortcut('toggleHeynote', 'Toggle Heynote', 'Ctrl+Shift+H', toggleHeynote);
 ```
 
-See the [KWin scripting tutorial](https://develop.kde.org/docs/plasma/kwin/) for instructions on how to install the script.
+安装脚本的方法请参阅 [KWin 脚本教程](https://develop.kde.org/docs/plasma/kwin/)。
 
-Remember to enable the script in the KDE System Settings. It may also be necessary to go into the KDE System Settings and bind the "Toggle Heynote" key manually.
+请记得在 KDE 系统设置中启用该脚本。可能还需要进入 KDE 系统设置手动绑定"Toggle Heynote"按键。

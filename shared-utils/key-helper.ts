@@ -3,28 +3,28 @@ export const keyHelpStr = (platform: string, extended: boolean = false) => {
     const altChar = platform === "darwin" ? "⌥" : "Alt"
 
     const keyHelp = [
-        [`${modChar} + Enter`, "Add new block below the current block"],
-        [`${altChar} + Enter`, "Add new block before the current block"],
-        [`${modChar} + Shift + Enter`, "Add new block at the end of the buffer"],
-        [`${altChar} + Shift + Enter`, "Add new block at the start of the buffer"],
-        [`${modChar} + ${altChar} + Enter`, "Split the current block at cursor position"],
-        [`${modChar} + L`, "Change block language"],
-        [`${modChar} + N`, "Create a new note buffer"],
-        [`${modChar} + S`, "Move the current block to another (or new) buffer"],
-        [`${modChar} + P`, "Open note selector"],
-        [`${modChar} + Shift + P`, "Open command palette"],
-        [`${modChar} + Down`, "Goto next block"],
-        [`${modChar} + Up`, "Goto previous block"],
-        [`${modChar} + A`, "Select all text in a note block. Press again to select the whole buffer"],
-        [`${modChar} + ${altChar} + Up/Down`, "Add additional cursor above/below"],
-        [`${altChar} + Shift + F`, "Format block content (works for JSON, JavaScript, HTML, CSS and Markdown)"],
+        [`${modChar} + Enter`, "在当前区块下方添加新区块"],
+        [`${altChar} + Enter`, "在当前区块上方添加新区块"],
+        [`${modChar} + Shift + Enter`, "在笔记末尾添加新区块"],
+        [`${altChar} + Shift + Enter`, "在笔记开头添加新区块"],
+        [`${modChar} + ${altChar} + Enter`, "在光标位置拆分当前区块"],
+        [`${modChar} + L`, "更改区块语言"],
+        [`${modChar} + N`, "新建笔记"],
+        [`${modChar} + S`, "将当前区块移动到其他（或新的）笔记"],
+        [`${modChar} + P`, "打开笔记选择器"],
+        [`${modChar} + Shift + P`, "打开命令面板"],
+        [`${modChar} + Down`, "跳转到下一个区块"],
+        [`${modChar} + Up`, "跳转到上一个区块"],
+        [`${modChar} + A`, "全选当前区块中的文本；再按一次选择整个笔记"],
+        [`${modChar} + ${altChar} + Up/Down`, "在上方/下方添加光标"],
+        [`${altChar} + Shift + F`, "格式化区块内容（支持 JSON、JavaScript、HTML、CSS 和 Markdown）"],
     ]
 
     if (extended) {
         keyHelp.push(
-            [`${modChar} + ${altChar} + [`, "Fold block(s)"],
-            [`${modChar} + ${altChar} + ]`, "Unfold block(s)"],
-            [`${modChar} + ${altChar} + .`, "Toggle block fold"],
+            [`${modChar} + ${altChar} + [`, "折叠区块"],
+            [`${modChar} + ${altChar} + ]`, "展开区块"],
+            [`${modChar} + ${altChar} + .`, "切换区块折叠状态"],
         )
     }
     

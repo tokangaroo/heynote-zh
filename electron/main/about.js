@@ -20,7 +20,7 @@ export function openAboutWindow() {
             fullscreenable: false,
             autoHideMenuBar: true,
             //backgroundColor: nativeTheme.shouldUseDarkColors ? '#262B37' : '#FFFFFF',
-            title: "About Heynote",
+            title: "关于 Heynote",
             show: false,
             webPreferences: {
                 preload: join(__dirname, '../preload/about-preload.js'),

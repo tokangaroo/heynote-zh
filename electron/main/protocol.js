@@ -25,7 +25,7 @@ export function registerProtocol(fileLibrary) {
     protocol.handle("heynote-file", async (request) => {
         //console.log("got request:", request)
         if (!activeFileLibrary) {
-            return new Response("File library unavailable", { status: 503 })
+            return new Response("文件库不可用", { status: 503 })
         }
 
         // request.url like: heynote-file://image/2026-01-15T21%3A46%3A39.824Z.png
@@ -36,7 +36,7 @@ export function registerProtocol(fileLibrary) {
 
         const data = await jetpack.readAsync(filePath, "buffer")
         if (!data) {
-            return new Response("Not found", { status: 404 })
+            return new Response("未找到", { status: 404 })
         }
 
         const contentType = mimetypes.lookup(filePath) || "application/octet-stream"

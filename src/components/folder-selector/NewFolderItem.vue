@@ -71,7 +71,7 @@
             type="text" 
             v-model="name"
             ref="input"
-            placeholder="New folder name"
+            placeholder="新文件夹名称"
             maxlength="60"
             @keydown.stop="onKeyDown"
             @blur="finish"

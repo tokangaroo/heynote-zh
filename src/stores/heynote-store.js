@@ -236,7 +236,7 @@ export const useHeynoteStore = defineStore("heynote", {
 
         editBufferMetadata(path) {
             if (path === SCRATCH_FILE_NAME) {
-                throw new Error("Can't edit scratch file metadata")
+                throw new Error("无法编辑草稿文件的元数据")
             }
             if (this.currentBufferPath !== path) {
                 this.openBuffer(path)
@@ -275,7 +275,7 @@ export const useHeynoteStore = defineStore("heynote", {
          */
         async saveNewBuffer(path, name, content) {
             if (this.buffers[path]) {
-                throw new Error(`Note already exists: ${path}`)
+                throw new Error(`笔记已存在：${path}`)
             }
             
             const note = new NoteFormat()
@@ -290,7 +290,7 @@ export const useHeynoteStore = defineStore("heynote", {
             const editorCacheStore = useEditorCacheStore()
 
             if (this.currentEditor.path !== path) {
-                throw new Error(`Can't update note (${path}) since it's not the active one (${this.currentEditor.path})`)
+                throw new Error(`无法更新笔记（${path}），因为它不是当前激活的笔记（${this.currentEditor.path}）`)
             }
             //console.log("currentEditor", this.currentEditor)
             toRaw(this.currentEditor).setName(name)
@@ -306,7 +306,7 @@ export const useHeynoteStore = defineStore("heynote", {
 
         async deleteBuffer(path) {
             if (path === SCRATCH_FILE_NAME) {
-                throw new Error("Can't delete scratch file")
+                throw new Error("无法删除草稿文件")
             }
             const editorCacheStore = useEditorCacheStore()
             editorCacheStore.freeEditor(path)

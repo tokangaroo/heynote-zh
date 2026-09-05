@@ -86,10 +86,10 @@
     <div class="container add-key-binding-dialog">
         <div class="dialog">
             <div class="dialog-content">
-                <h3>Add key binding</h3>
+                <h3>添加快捷键</h3>
                 <div class="form">
                     <div class="field">
-                        <label>Key</label>
+                        <label>按键</label>
                         <RecordKeyInput 
                             v-model="key" 
                             @enter="focusCommandSelector"
@@ -98,7 +98,7 @@
                         />
                     </div>
                     <div class="field command-field">
-                        <label>Command</label>
+                        <label>命令</label>
                         <AutoComplete
                             dropdown
                             forceSelection
@@ -109,7 +109,7 @@
                             :delay="0"
                             @complete="onCommandSearch"
                             ref="autocomplete"
-                            emptySearchMessage="No commands found"
+                            emptySearchMessage="未找到命令"
                             class="command-autocomplete"
                         >
                             <template #option="slotProps">
@@ -125,11 +125,11 @@
                 <button 
                     @click="onSave"
                     class="save"
-                >Save</button>
+                >保存</button>
                 <button 
                     @click="$emit('close')"
                     class="cancel"
-                 >Cancel</button>
+                 >取消</button>
             </div>
         </div>
     </div>

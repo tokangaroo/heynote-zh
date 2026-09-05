@@ -48,7 +48,7 @@ export class FileLibrary {
         this.win = win
         basePath = untildify(basePath)
         if (jetpack.exists(basePath) !== "dir") {
-            throw new Error(`Path directory does not exist: ${basePath}`)
+            throw new Error(`路径目录不存在：${basePath}`)
         }
         this.basePath = fs.realpathSync(basePath)
         this.imagesBasePath = join(this.basePath, ".images")
@@ -83,14 +83,14 @@ export class FileLibrary {
 
     async save(path, content) {
         if (!this.files[path]) {
-            throw new Error(`File not loaded: ${path}`)
+            throw new Error(`文件未加载：${path}`)
         }
         return await this.files[path].save(content)
     }
 
     async create(path, content) {
         if (await this.exists(path)) {
-            throw new Error(`File already exists: ${path}`)
+            throw new Error(`文件已存在：${path}`)
         }
         const fullPath = join(this.basePath, path)
         await this.jetpack.writeAsync(fullPath, content)
@@ -98,7 +98,7 @@ export class FileLibrary {
 
     async move(path, newPath) {
         if (await this.exists(newPath)) {
-            throw new Error(`File already exists: ${newPath}`)
+            throw new Error(`文件已存在：${newPath}`)
         }
         const fullOldPath = join(this.basePath, path)
         const fullNewPath = join(this.basePath, newPath)
@@ -107,7 +107,7 @@ export class FileLibrary {
 
     async delete(path) {
         if (path === SCRATCH_FILE_NAME) {
-            throw new Error("Can't delete scratch file")
+            throw new Error("无法删除草稿文件")
         }
         const fullPath = join(this.basePath, path)
         await this.jetpack.removeAsync(fullPath)
@@ -379,7 +379,7 @@ export function setupFileLibraryEventHandlers() {
 
     ipcMain.handle("library:selectLocation", async () => {
         let result = await dialog.showOpenDialog({
-            title: "Select directory to store buffer",
+            title: "选择笔记存储目录",
             properties: [
                 "openDirectory",
                 "createDirectory",

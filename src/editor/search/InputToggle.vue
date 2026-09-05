@@ -26,13 +26,13 @@
             title() {
                 switch (this.type) {
                     case "block":
-                        return "Within Current Block";
+                        return "仅限当前区块";
                     case "case-sensitive":
-                        return "Case Sensitive";
+                        return "区分大小写";
                     case "whole-words":
-                        return "Match Whole Words";
+                        return "全字匹配";
                     case "regex":
-                        return "Use Regular Expression";
+                        return "使用正则表达式";
                     default:
                         return "";
                 }

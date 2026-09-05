@@ -1,306 +1,320 @@
-# Changelog
+# 更新日志
 
-Here are the most notable changes in each release. For a more detailed list of changes, see the [Github Releases page](https://github.com/heyman/heynote/releases).
+以下是各版本中最重要的变更。更详细的变更列表请参阅 [Github Releases 页面](https://github.com/heyman/heynote/releases)。
 
 ## 2.8.2
 
-- Fix issue with broken images after changing the buffer files path
+- 修复更改笔记文件路径后图片损坏的问题
 
 ## 2.8.1
 
-- Fix crash when fold gutter is turned off
+- 修复关闭折叠栏时崩溃的问题
 
 
 ## 2.8.0
 
-### Images
+### 图片
 
-Heynote now supports inline images. You can paste images from the clipboard or drag and drop image files. 
-Images can be selected and resized directly in the editor, and it's quick and easy to put an image back 
-on the system clipboard.
+Heynote 现已支持内联图片。你可以从剪贴板粘贴图片，或直接拖放图片文件。
+图片可以直接在编辑器中选中并调整大小，也可以快速轻松地将图片重新放回系统剪贴板。
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://heynote.com/img/dark/images.png">
-  <img src="https://heynote.com/img/light/images.png" width="400" alt="New image feature">
+  <img src="https://heynote.com/img/light/images.png" width="400" alt="新图片功能">
 </picture>
 
-### Drawing on images
+### 在图片上绘图
 
-Heynote now includes a lightweight drawing tool for adding quick, freehand annotations on top of images.
+Heynote 现在内置了一个轻量级绘图工具，可以在图片上快速添加手写批注。
 
 
-### Other changes
+### 其他变更
 
-- Add syntax highlighting for Math blocks
-- New lines in a Plaintext, Math and SQL blocks now inherits the indentation from the previous line
-  (other languages should already have this behaviour for new lines)
-- Add support for [Mermaid](https://mermaid.js.org/) blocks
-- Fix issue not being able to record the Enter key when creating custom key bindings
+- 为数学区块添加语法高亮
+- 纯文本、数学和 SQL 区块中的新行现在会继承上一行的缩进
+  （其他语言的新行本就具有此行为）
+- 添加对 [Mermaid](https://mermaid.js.org/) 区块的支持
+- 修复创建自定义按键绑定时无法录制回车键的问题
 
 
 ## v2.7.2
 
-- Fix issue causing broken status bar on some system locales (#434)
+- 修复某些系统区域设置下状态栏显示异常的问题（#434）
 
 ## 2.7.1
 
-- Fix issue where a folded block would get unfolded when editing an empty block directly below it.
+- 修复折叠区块在其正下方的空白区块被编辑时会意外展开的问题。
 
 
 ## 2.7.0
 
-### Non backwards-compatible change
+### 不向后兼容的变更
 
-Buffers created/saved with this new version of Heynote is not compatible with older versions of Heynote, 
-so if you're using Heynote on multiple machines, make sure to update to >=2.7 on all machines.
+使用此新版 Heynote 创建/保存的笔记与旧版本 Heynote 不兼容，
+如果你在多台机器上使用 Heynote，请确保将所有机器都更新到 >=2.7。
 
-### Creation time for blocks
+### 区块创建时间
 
-The time of creation is now recorded for blocks, and it's displayed in the status bar. For folded blocks, 
-it's also displayed in the summary line.
+现在会记录区块的创建时间，并显示在状态栏中。对于折叠的区块，
+创建时间也会显示在摘要行中。
 
-### Add new block and scroll down
+### 添加新区块并向下滚动
 
-A new command for adding a new block at the end of the buffer and then scrolling down so that only the new 
-block is visible has been added. This can be used to create a new block and avoid any distraction from seeing 
-the other blocks above while writing. 
+新增了一条命令，可以在笔记末尾添加新区块并向下滚动，使屏幕上只显示新
+区块。这样可以在写作时创建新区块，避免看到上方其他区块而分心。
 
-The default key binding for `Cmd/Ctrl+Shift+Enter` has been changed to this new command, but anyone who would 
-prefer the old behaviour, can add a key binding for the  `Add new block after last block` command.
+`Cmd/Ctrl+Shift+Enter` 的默认按键绑定已更改为这条新命令。如果更喜欢
+以前的行为，可以为 `在最后一个区块后面添加新区块` 命令自行添加按键绑定。
 
-<img src="https://heynote.com/img/changelog/new-block-and-scroll-down.gif" style="width:100%;" alt="GIF showing the new feature">
+<img src="https://heynote.com/img/changelog/new-block-and-scroll-down.gif" style="width:100%;" alt="展示新功能的 GIF">
 
-### Other fixes and improvements
+### 其他修复与改进
 
-- The default key binding for the `TAB` key is now a new `insertIndentation` command. This command will insert 
-  indentation character(s) (spaces or tabs depending on the setting) so that the cursor aligns with the indentation
-  columns. Unless there is an active selection, in which case the `indentMore` command will be executed instead.
-  If you want the old behaviour, you can bind the `TAB` key to `indentMore`.
-- Chinese characters in buffer file names are now converted to ascii using pinyin. This fixes an issue where it 
-  wasn't possible to create a buffer with only chinese characters it the name.
-- Fix issue where the wrong locale was used for formatting dates on MacOS on systems using a locale such as "en-SE"
-- Fix issue with folded Math blocks where the results from the first and last line would still be visible
-- Always use 2-digit notation for hours when displaying time
-- Add setting for configuring the cursor blink rate (or turning off the blinking)
-- Add support for Lua blocks
-- Add `toggleCheckbox` command for Markdown todo items (default key binding: `Cmd/Ctrl+Shift+Space`)
-- Fix issue when selecting all content of a math block and typing a character
-- Fix so that checkboxes in todo lists takes up 4 spaces so that the margin align for multi line list items
+- `TAB` 键的默认按键绑定现在是一条新的 `insertIndentation` 命令。该命令会插入
+  缩进字符（根据设置为空格或 Tab），使光标对齐到缩进列。如果没有活动选区，
+  则执行 `indentMore` 命令。
+  如果想要以前的行为，可以将 `TAB` 键绑定到 `indentMore`。
+- 笔记文件名中的汉字现在会通过拼音转换为 ASCII。这修复了无法创建名称仅包含
+  汉字的笔记的问题。
+- 修复 MacOS 上使用 "en-SE" 之类区域设置时日期格式化使用错误区域设置的问题
+- 修复折叠的数学区块中首行和末行的计算结果仍然可见的问题
+- 显示时间时小时始终使用两位数字
+- 新增光标闪烁频率设置（或关闭闪烁）
+- 新增对 Lua 区块的支持
+- 新增用于 Markdown 待办项的 `toggleCheckbox` 命令（默认按键绑定：`Cmd/Ctrl+Shift+Space`）
+- 修复全选数学区块内容后输入字符时的问题
+- 修复待办列表中的复选框占位为 4 个空格，使多行列表项的边距对齐
 
 
 ## 2.6.2
 
-- Update to latest version of Electron to fix issue making Heynote unusable on latest version of Mac OS (Tahoe)
-- Fix issue that would break Math blocks with a large number of lines (the parser would not start processing 
-  rows from the beginning of the block)
-- Fix issue with not being able to hide window after toggling alwaysOnTop (on Mac)
+- 升级到最新版 Electron，修复 Heynote 在最新版 macOS（Tahoe）上无法使用的问题
+- 修复行数较多的数学区块损坏的问题（解析器未从区块开头开始处理行）
+- 修复（Mac 上）切换窗口置顶后无法隐藏窗口的问题
 
 ## 2.6.1
 
-- Fix crash when no custom key binding had been set
+- 修复未设置自定义按键绑定时的崩溃问题
 
 ## 2.6.0
 
-- Add setting for rendering white-space (spaces as dots and tabs as arrows)
-- Show key bindings in Command Palette
-- When displaying key bindings show shorter version with ⇧, ⌘, ⌥, etc instead of Shift, Cmd, Alt, etc
-- Fixed so that tooltips displays new key binding if the default have been overridden
+- 新增渲染空白字符的设置（空格显示为点，Tab 显示为箭头）
+- 命令面板中显示按键绑定
+- 显示按键绑定时使用 ⇧、⌘、⌥ 等更简短的形式代替 Shift、Cmd、Alt 等
+- 修复当默认按键绑定被覆盖时，提示信息未显示新按键绑定的问题
 
 
 ## 2.5.0
 
-### Tabs
+### 标签页
 
-You now get a visual representation of open buffers in the form of tabs. The tabs are integrated in the menu bar to take up as little screen real estate as possible, and they can also be turned off - completely or just in fullscreen mode - in the settings. 
+现在可以通过标签页直观地查看已打开的笔记。标签页集成在标题栏中，尽可能少地占用屏幕空间，
+并且可以在设置中将其关闭——完全关闭或仅在全屏模式下关闭。
 
-### Spellchecking
+### 拼写检查
 
-It's now possible to turn on/off spellchecking. This can be done by clicking the spellchecking icon in the status bar. There are also heynote commands that can be bound to custom keys to enable/disable/toggle spellchecking.
+现在可以开启/关闭拼写检查。点击状态栏中的拼写检查图标即可。此外还有可用于绑定自定义按键的
+命令，用于启用/禁用/切换拼写检查。
 
-### Other fixes and improvements
+### 其他修复与改进
 
-- Added a pin icon to the status bar that can be used to toggle the "Always on top" setting (to make the windows float on top of other programs).
-- Added toggleAlwaysOnTop command that can be used to bind a key that toggles the "Always on top setting".
-- Remember the open buffer(s) between program restarts.
-- Fixed so that Alt-clicking on an cursor removes it (if more than one cursor exists).
-- Changed the key binding for rectangular selection from Alt+Click to Alt+Shift+Click.
-- Fixed issue where the window position wouldn't be properly restored in some cases.
-- Updated to latest version of Electron.
+- 状态栏中新增图钉图标，可用于切换"窗口置顶"设置（使窗口悬浮在其他程序之上）。
+- 新增 toggleAlwaysOnTop 命令，可绑定按键来切换"窗口置顶"设置。
+- 在程序重启后记住已打开的笔记。
+- 修复为 Alt+点击光标可将其移除（当存在多个光标时）。
+- 矩形选择的按键绑定从 Alt+点击 更改为 Alt+Shift+点击。
+- 修复某些情况下窗口位置无法正确恢复的问题。
+- 升级到最新版 Electron。
 
 
 ## 2.4.0
 
-### Improved  search functionality
+### 改进的搜索功能
 
-The new search (and replace) dialog has an improved UI and is now "block aware", meaning that one can choose to search within the current block or across all blocks. The search settings (within the current block, case sensitivity, whole words) also affects the `Cmd/Ctrl-D` command for selecting the next occurrence of the current selection.
+全新的搜索（和替换）对话框拥有更完善的 UI，并且"具备区块感知"能力，即可以选择在当前区块内
+搜索还是跨所有区块搜索。搜索设置（当前区块内、区分大小写、全字匹配）同样会影响 `Cmd/Ctrl-D`
+命令（选择下一个与当前选区相同的匹配项）。
 
-### Other fixes and improvements
+### 其他修复与改进
 
-- Fix issues with todo lists checkboxes in Markdown blocks
-- Fix issue with markdown blocks sometimes not being fully folded
+- 修复 Markdown 区块中待办列表复选框的问题
+- 修复 Markdown 区块有时无法完全折叠的问题
 
 ## 2.3.3
 
-- Prevent blocks from unfolding when changing the block language
-- Fix issue toggling the fold gutter setting
+- 防止更改区块语言时区块被展开
+- 修复切换折叠栏设置时的问题
 
 ## 2.3.2
 
-- Improve folding to be less aggressive with the unfolding (e.g. when creating a new block after a folded block, and then immediately pressing backspace to remove the new block)
+- 改进折叠功能，减少过于激进地展开区块的情况（例如在折叠区块后创建新区块，然后立即按退格键删除新区块时）
 
 ## 2.3.1
 
-- Fix issue with the cursor being a few pixels too short
-- Fix issue where one could remove characters within a folded block without it getting unfolded
+- 修复光标高度少几个像素的问题
+- 修复可以在折叠区块内删除字符而区块不展开的问题
 
 ## 2.3.0
 
-### Improved support for folding blocks
+### 改进的区块折叠支持
 
-- Fixed an issue where some types of blocks could not be folded. 
-- The fold state is now stored in the buffer file so that it's persisted between sessions. 
-- Added three new commands for folding and unfolding blocks:
-  - `foldBlock` - Folds the current/selected block(s). Default key binding is `Ctrl-Alt-[` on Windows/Linux and `Cmd-Option-[` on Mac.
-  - `unfoldBlock` - Unfolds the current/selected block(s). Default key binding is `Ctrl-Alt-]` on Windows/Linux and `Cmd-Option-]` on Mac.
-  - `toggleFoldBlock` - Toggles the fold state of the current/selected block. Default key binding is `Ctrl-Alt-.` on Windows/Linux and `Cmd-Option-.` on Mac.
-- Folded blocks now display the first 50 characters of the block content, as well as the number of lines in the block.
-- Default key bindings for folding code on Mac changed from `Cmd-Option-[` and `Cmd-Option-]` to `Cmd-Shift-[` and `Cmd-Shift-]` (to avoid conflicts with the new block folding commands)
+- 修复某些类型的区块无法折叠的问题。
+- 折叠状态现在会保存在笔记文件中，可在会话之间持久化。
+- 新增三条用于折叠和展开区块的命令：
+  - `foldBlock` - 折叠当前/所选区块。Windows/Linux 上的默认按键绑定是 `Ctrl-Alt-[`，Mac 上是 `Cmd-Option-[`。
+  - `unfoldBlock` - 展开当前/所选区块。Windows/Linux 上的默认按键绑定是 `Ctrl-Alt-]`，Mac 上是 `Cmd-Option-]`。
+  - `toggleFoldBlock` - 切换当前/所选区块的折叠状态。Windows/Linux 上的默认按键绑定是 `Ctrl-Alt-.`，Mac 上是 `Cmd-Option-.`。
+- 折叠的区块现在会显示区块内容的前 50 个字符，以及区块的行数。
+- Mac 上折叠代码的默认按键绑定从 `Cmd-Option-[` 和 `Cmd-Option-]` 更改为 `Cmd-Shift-[` 和 `Cmd-Shift-]`（以避免与新的区块折叠命令冲突）
 
-### Other features and fixes
+### 其他功能与修复
 
-- Add document navigation commands (Ctrl+Home/End)
-- Fix wrong positioning if IME interface (for Chinese input)
-- Prevent editor from loosing focus when line number/fold gutter is clicked
+- 新增文档导航命令（Ctrl+Home/End）
+- 修复输入法（中文输入）界面定位错误的问题
+- 防止点击行号/折叠栏时编辑器失去焦点
 
 ## 2.2.2
 
-- Fix issue when changing settings after having upgraded to Heynote 2.2 from an earlier version
+- 修复从早期版本升级到 Heynote 2.2 后更改设置时的问题
 
 ## 2.2.1
 
-### Bug Fixes
+### Bug 修复
 
-- Fix issue where the second command in the command palette, instead of the first command, was selected when the palette is opened.
-- Change name/label of some commands in the command palette, and make commands searchable using their key names as well.
-- Fix key bindings for toggleComment and toggleBlockComment commands that were previously working.
-- Fix issue with lists in markdown blocks not automatically being continued when pressing enter.
+- 修复打开命令面板时默认选中第二条命令而非第一条命令的问题。
+- 更改命令面板中部分命令的名称/标签，并支持通过按键名称搜索命令。
+- 修复 toggleComment 和 toggleBlockComment 命令此前失效的按键绑定。
+- 修复 Markdown 区块中的列表按回车时无法自动延续的问题。
 
 
 ## 2.2.0
 
-### New Features
+### 新功能
 
-- Added support for custom key bindings. See [the documentation](https://heynote.com/docs/#user-content-custom-key-bindings) for more info.
-- Added a "command palette" that can be accessed by pressing `Ctrl/Cmd+Shift+P`, or just typing `>` in the buffer selector. The command palette allows you to discover all available commands in the app, and to quickly execute them.
-- Added support for configuring the tab size, as well as the option to use tabs instead of spaces for indentation.
-- Added functionality for moving blocks up and down. Default key bindings are `Ctrl/Cmd+Alt+Shift+Up` and `Ctrl/Cmd+Alt+Shift+Down`.
-- Added functionality for inserting the current date and time. Default key binding is `Alt+Shift+D`.
+- 新增自定义按键绑定支持。更多信息参见[文档](https://heynote.com/docs/#user-content-custom-key-bindings)。
+- 新增"命令面板"，按 `Ctrl/Cmd+Shift+P` 或在笔记选择器中输入 `>` 即可打开。命令面板让你可以发现
+  应用中的所有可用命令并快速执行。
+- 新增缩进宽度（tab size）配置，以及使用 Tab 代替空格缩进的选项。
+- 新增区块上下移动功能。默认按键绑定是 `Ctrl/Cmd+Alt+Shift+Up` 和 `Ctrl/Cmd+Alt+Shift+Down`。
+- 新增插入当前日期和时间的功能。默认按键绑定是 `Alt+Shift+D`。
 
-### Other changes
+### 其他变更
 
-- Upgraded to latest version of Electron, CodeMirror, Vue, electron-builder and other dependencies.
+- 升级到最新版 Electron、CodeMirror、Vue、electron-builder 及其他依赖。
 
 ## 2.1.4
 
-- Fix issue with positioning and size of todo list checkboxes in Markdown blocks when using a non-default font size, or a non-monospaced font.
-- Fix issue when pressing `Ctrl/Cmd+A` in a text input inside a modal dialog (e.g. the buffer selector). Previously the select all command would be sent to the editor.
+- 修复在 Markdown 区块中使用非默认字号或非等宽字体时，待办列表复选框的位置和大小问题。
+- 修复在模态对话框（如笔记选择器）内的文本输入框中按 `Ctrl/Cmd+A` 时的问题。此前全选命令会被发送到编辑器。
 
 ## 2.1.3
 
-- Fix escaping issue in buffer selector (properly this time, hopefully)
+- 修复笔记选择器中的转义问题（这次是真的修复了，希望如此）
 
-## 2.1.2 (yanked)
+## 2.1.2（已撤回）
 
-- Fix issue where buffer name wasn't properly escaped in buffer selector
+- 修复笔记选择器中笔记名称未正确转义的问题
 
 ## 2.1.1
 
-- Fix bug on Windows causing sub directories in the note library to not work correctly
+- 修复 Windows 上笔记库子目录无法正常工作的问题
 
 ## 2.1.0
 
-### New Features
+### 新功能
 
-- Added support for moving the current block to another (or new) buffer. Pressing `Ctrl/Cmd+S` will now pop up a dialog where you can search for and select another buffer to which the block will be moved. It's also possible to select to create a new buffer to which the block will be moved.
-- Add right click context menu with undo/redo/cut/copy/paste/select all as well as Delete Block and Move block to another buffer.
-- Add File menu item for switching buffer
-- When deleting a block, the cursor will now end up at the beginning of the next block, instead of at the end of the previous block.
-- Added support for the following languages:
+- 新增将当前区块移动到其他（或新的）笔记的支持。按 `Ctrl/Cmd+S` 会弹出对话框，可在其中搜索并选择
+  要将区块移动到的笔记。也可以选择创建新笔记来容纳该区块。
+- 新增右键上下文菜单，包含撤销/重做/剪切/复制/粘贴/全选，以及删除区块和将区块移动到其他笔记。
+- 在文件菜单中新增切换笔记的菜单项
+- 删除区块时，光标现在会停在下一个区块的开头，而不是上一个区块的末尾。
+- 新增以下语言支持：
   * Elixir
   * Scala
-- PHP blocks no longer requires `<?php` for syntax highlighting to work
+- PHP 区块不再需要 `<?php` 即可获得语法高亮
 
-### Bug Fixes
+### Bug 修复
 
-- MacOS: Clicking the Heynote icon in the dock when using menu bar mode didn't bring up the window
-- Redo from the application menu didn't work
+- MacOS：在菜单栏模式下点击 Dock 中的 Heynote 图标未弹出窗口
+- 从应用菜单执行重做无效
 
 
 ## 2.0.0
 
-### IMPORTANT (breaking change)
+### 重要提示（破坏性变更）
 
-The default path of the scratch file has changed. The first time you start the new version of Heynote, your existing buffer file will be migrated to the new note library. If you're using the default buffer location, that means that the existing Scratch buffer file will be moved from `%APP_DIR%/buffer.txt` to `%APP_DIR%/notes/scratch.txt`. If you are using a custom buffer location the existing scratch file will be moved from `%CUSTOM_DIR%/buffer.txt` to `%CUSTOM_DIR%/scratch.txt`. Before the migration, the existing buffer file will be backed up to `%APP_DIR%/buffer.txt.bak` or `%CUSTOM_DIR%/buffer.txt.bak`.
+草稿文件的默认路径已更改。首次启动新版 Heynote 时，现有的缓冲区文件会被迁移到新的笔记库。
+如果你使用默认的缓冲区位置，现有的 Scratch 缓冲区文件将从 `%APP_DIR%/buffer.txt` 移动到
+`%APP_DIR%/notes/scratch.txt`。如果你使用自定义缓冲区位置，现有草稿文件将从 `%CUSTOM_DIR%/buffer.txt`
+移动到 `%CUSTOM_DIR%/scratch.txt`。迁移之前，现有缓冲区文件会备份为 `%APP_DIR%/buffer.txt.bak`
+或 `%CUSTOM_DIR%/buffer.txt.bak`。
 
-If you are running a previous version of Heynote with the buffer file synchronized across multiple machines using a file synching service such as Dropbox or OneDrive, you should make sure to upgrade all machines to Heynote 2.0 at the same time (closing Heynote before) in order for the file to stay in sync, since the file path for the buffer file has changed. 
+如果你正在运行旧版本 Heynote，并且使用 Dropbox 或 OneDrive 等文件同步服务在多台机器间同步缓冲区
+文件，请确保同时将所有机器升级到 Heynote 2.0（升级前先关闭 Heynote），以便文件保持同步，因为
+缓冲区文件的路径已经发生变化。
 
-### Support for multiple note buffers. 
+### 支持多个笔记。
 
-Apart from the default Scratch buffer, you can now create and switch between multiple note buffers. `Ctrl/Cmd+N` opens up a dialog for creating a new buffer. By pressing `Ctrl/Cmd+S` you can create a new note from the current block (the current block will be moved into the new note). New note buffers are saved to the note library which is basically a directory (with sub dirs) on the disk with a `.txt` file for each buffer. You switch between buffers by pressing `Ctrl/Cmd+P`.
+除了默认的 Scratch 草稿，现在可以创建和切换多个笔记。`Ctrl/Cmd+N` 打开新建笔记对话框。按
+`Ctrl/Cmd+S` 可以从当前区块创建新笔记（当前区块会被移动到新笔记中）。新笔记保存在笔记库中，
+笔记库本质上是磁盘上的一个目录（含子目录），每个笔记对应一个 `.txt` 文件。按 `Ctrl/Cmd+P`
+切换笔记。
 
-### Other changes
+### 其他变更
 
-- The file format for the buffer files has been updated to include some JSON metadata at the top of the file. 
-- The cursor(s) location is saved between sessions.
-- Improvements when using a file syncing service (e.g. Dropbox, OneDrive) to sync the note library between machines.
-- The setting for changing the color theme is now located in the program settings, instead of in the status bar.
-- Improvements to the language selector's search feature (it's now possible to search for languages by their file extension).
+- 笔记文件的文件格式已更新，在文件顶部包含一些 JSON 元数据。
+- 光标位置会在会话之间保存。
+- 改进使用文件同步服务（如 Dropbox、OneDrive）在机器间同步笔记库时的表现。
+- 更改颜色主题的设置现在位于程序设置中，而不是状态栏。
+- 改进语言选择器的搜索功能（现在可以通过文件扩展名搜索语言）。
 
 ## 1.8.0
 
-- Performance optimizations
-- Add default redo cmd that works on all Platforms. Mod+Shift+Z
-- Fix bug causing editing to break for empty blocks in some cases
-- Add setting for configuring the default block language
-- Vue language support
-- Dart Syntax
-- Fix error on startup for large buffers
+- 性能优化
+- 新增在所有平台都可用的默认重做命令。Mod+Shift+Z
+- 修复某些情况下空区块编辑出错的问题
+- 新增默认区块语言设置
+- 新增 Vue 语言支持
+- 新增 Dart 语法
+- 修复大型缓冲区启动时报错的问题
 
 ## 1.7.1
 
-- Update to latest version of Electron. Fixes crash on MacOS 15 Developer Preview
+- 升级到最新版 Electron。修复 MacOS 15 开发者预览版上的崩溃问题
 
 ## 1.7.0
 
-- Fix "white flash" effect when resizing window in dark mode
-- Add prev variable to Math blocks that holds the previous value
-- Add settings button to status bar
-- Add version number to settings dialog
-- Persist window location when opening the app
-- Copy whole current line(s) when selection(s) are empty
-- Fix block corruption when deleting block content using deleteLine command
-- Add PowerShell and Diff language modes
-- "Always on top" setting which makes Heynote stay on top of other programs
+- 修复深色模式下调整窗口大小时的"白闪"效果
+- 数学区块新增 prev 变量，保存上一个计算结果
+- 状态栏新增设置按钮
+- 设置对话框中显示版本号
+- 打开应用时记住窗口位置
+- 选区为空时复制整个当前行
+- 修复使用 deleteLine 命令删除区块内容时区块损坏的问题
+- 新增 PowerShell 和 Diff 语言模式
+- 新增"窗口置顶"设置，使 Heynote 始终显示在其他程序之上
 
 ## 1.6.0
 
-- Added support for having Heynote in the Mac Menu Bar / Tray icon
-- Ability to specify file system location of Heynote's buffer file. The buffer will automatically be reloaded if changed on disk, so this should make it possible to have the buffer automatically synced between machines using a file-syncing service such as Dropbox.
-- Custom font and font size support.
-- More key-binding for creating new blocks
-- Syntax hightlighting support for new languages:
+- 新增对 Mac 菜单栏 / 托盘图标的支持
+- 支持指定 Heynote 缓冲区文件的文件系统位置。当文件在磁盘上被更改时会自动重新加载，因此配合
+  Dropbox 等文件同步服务应该可以实现缓冲区在机器间自动同步。
+- 支持自定义字体和字号。
+- 新增更多创建区块的按键绑定
+- 新增语言的语法高亮支持：
   * Swift
   * Kotlin
   * Groovy
-- Auto-close brackets functionality that can be turned on in settings
-- Ability to change how calculations are formatted in Math blocks. See the [Docs](https://heynote.com/docs/#user-content-changing-how-the-results-of-math-blocks-are-formatted) for info on how to do this.
-- There's now a Heynote webapp at [app.heynote.com](https://app.heynote.com). It's still work-in-progress, but should be usable. The buffer is stored in localStorage.
-- Multiple bug fixes and minor improvement.
+- 新增自动闭合括号功能，可在设置中开启
+- 支持更改数学区块中计算结果的格式。具体方法参见[文档](https://heynote.com/docs/#user-content-changing-how-the-results-of-math-blocks-are-formatted)。
+- Heynote 现在有了网页版 [app.heynote.com](https://app.heynote.com)。目前仍在开发中，但应该可以
+  使用。缓冲区存储在 localStorage 中。
+- 多项 Bug 修复和小幅改进。
 
 
 ## 1.5.0
 
-- Add support for the following languages
+- 新增以下语言支持
   * TypeScript
   * JSX
   * TSX
@@ -313,12 +327,12 @@ Apart from the default Scratch buffer, you can now create and switch between mul
   * Ruby
   * Shell
   * YAML
-- Various bug fixes and improvements
+- 多项 Bug 修复和改进
 
 ## 1.4.1
 
-- Fixed issue that would sometimes cause auto formatting to freeze the app for long periods.
+- 修复有时会导致自动格式化使应用长时间无响应的问题。
 
 ## 1.4.0
 
-- Added ability to set a global hotkey for showing/hiding Heynote.
+- 新增设置全局快捷键以显示/隐藏 Heynote 的功能。

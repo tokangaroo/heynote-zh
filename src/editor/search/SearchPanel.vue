@@ -190,7 +190,7 @@
                         v-model="queryStr"
                         ref="input"
                         @keydown="onQueryKeyDown"
-                        placeholder="Find…"
+                        placeholder="查找…"
                         class="search-query"
                         main-field
                     />
@@ -220,35 +220,35 @@
                 <button
                     @click="findPrevious"
                     class="button find-previous"
-                    title="Previous Match (Shift+Enter)"
+                    title="上一个匹配 (Shift+Enter)"
                 ></button>
                 <button
                     @click="findNext"
                     class="button find-next"
-                    title="Next Match (Enter)"
+                    title="下一个匹配 (Enter)"
                 ></button>
                 <button
                     @click="onClose"
                     class="button close"
-                    title="Close Search (Esc)"
+                    title="关闭搜索 (Esc)"
                 ></button>
             </div>
             <div class="replace" v-show="replaceVisible">
                 <input 
                     type="text" 
-                    placeholder="Replace…" 
+                    placeholder="替换…" 
                     v-model="replaceStr"
                     @keydown="onReplaceKeyDown"
                 >
                 <button
                     @click="replace"
                     class="button replace"
-                    title="Replace Match (Enter)"
+                    title="替换匹配 (Enter)"
                 ></button>
                 <button
                     @click="replaceAll"
                     class="button replace-all"
-                    :title="'Replace All Matches (' + ctrlCmdCharacter + '+Enter)'"
+                    :title="'全部替换匹配 (' + ctrlCmdCharacter + '+Enter)'"
                 ></button>
             </div>
         </div>

@@ -25,7 +25,7 @@
     >
         <div class="dialog">
             <div class="dialog-content">
-                <h1>Error</h1>
+                <h1>错误</h1>
                 <p>
                     {{ errors[0] }}
                 </p>
@@ -36,13 +36,13 @@
                         v-if="errors.length > 1"
                         class="count"
                     >
-                        {{ errors.length-1 }} more {{ pluralize(errors.length-1, "error", "errors") }}
+                        还有 {{ errors.length-1 }} 条错误
                     </div>
                 </div>
                 <button 
                     @click="popError"
                     class="close"
-                >Close</button>
+                >关闭</button>
             </div>
         </div>
         <div class="shader"></div>

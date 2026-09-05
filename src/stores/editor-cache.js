@@ -50,7 +50,7 @@ export const useEditorCacheStore = defineStore("editorCache", {
                     cursorBlinkRate: settingsStore.settings.cursorBlinkRate,
                 })
             } catch (e) {
-                errorStore.addError("Error! " + e.message)
+                errorStore.addError("错误！ " + e.message)
                 throw e
             }
 

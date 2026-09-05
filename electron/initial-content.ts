@@ -6,19 +6,19 @@ const created = (new Date()).toISOString()
 export const initialContent = `
 {"formatVersion":"1.0.0","name":"Scratch"}
 ∞∞∞text;created=${created}
-Welcome to Heynote! 👋
+欢迎使用 Heynote！👋
 
 ${keyHelpStr(os.platform())}
 ∞∞∞markdown;created=${created}
-Read full documentation at https://heynote.com/docs
+完整文档请见 https://heynote.com/docs
 ∞∞∞math;created=${created}
-This is a Math block. Here, rows are evaluated as math expressions. 
+这是一个数学区块，每一行都会作为数学表达式求值。
 
 radius = 5
 area = radius^2 * PI
 sqrt(9)
 
-It also supports some basic unit conversions, including currencies:
+它还支持一些基本的单位换算，包括货币：
 
 13 inches in cm
 time = 3900 seconds to minutes
@@ -26,10 +26,10 @@ time * 2
 
 1 EUR in USD
 ∞∞∞markdown;created=${created}
-In Markdown blocks, lists with [x] and [ ] are rendered as checkboxes:
+在 Markdown 区块中，[x] 和 [ ] 列表会被渲染为复选框：
 
-- [x] Download Heynote
-- [ ] Try out Heynote
+- [x] 下载 Heynote
+- [ ] 试用 Heynote
 ∞∞∞text-a;created=${created}
 `
 
@@ -112,10 +112,10 @@ let editor = new EditorView({
 ∞∞∞sql;created=${created}
 SELECT * FROM table WHERE id = 1;
 ∞∞∞text;created=${created}
-Shopping list:
+购物清单：
 
-- Milk
-- Eggs
-- Bread
-- Cheese`
+- 牛奶
+- 鸡蛋
+- 面包
+- 奶酪`
 

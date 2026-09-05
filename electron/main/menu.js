@@ -9,7 +9,7 @@ const isMac = process.platform === "darwin"
 
 
 const undoMenuItem = {
-    label: 'Undo',
+    label: '撤销',
     accelerator: 'CommandOrControl+z',
     click: (menuItem, window, event) => {
         window?.webContents.send(UNDO_EVENT)
@@ -17,7 +17,7 @@ const undoMenuItem = {
 }
 
 const redoMenuItem = {
-    label: 'Redo',
+    label: '重做',
     accelerator: 'CommandOrControl+Shift+z',
     click: (menuItem, window, event) => {
         window?.webContents.send(REDO_EVENT)
@@ -25,7 +25,7 @@ const redoMenuItem = {
 }
 
 const selectAllMenuItem = {
-    label: 'Select All',
+    label: '全选',
     accelerator: 'CommandOrControl+a',
     click: (menuItem, window, event) => {
         window?.webContents.send(SELECT_ALL_EVENT)
@@ -33,7 +33,7 @@ const selectAllMenuItem = {
 }
 
 const deleteBlockMenuItem = {
-    label: 'Delete block',
+    label: '删除区块',
     accelerator: 'CommandOrControl+Shift+D',
     click: (menuItem, window, event) => {
         window?.webContents.send(DELETE_BLOCK_EVENT)
@@ -41,7 +41,7 @@ const deleteBlockMenuItem = {
 }
 
 const moveBlockMenuItem = {
-    label: 'Move block to another buffer…',
+    label: '将区块移动到其他笔记…',
     accelerator: 'CommandOrControl+S',
     click: (menuItem, window, event) => {
         window?.webContents.send(MOVE_BLOCK_EVENT)
@@ -49,7 +49,7 @@ const moveBlockMenuItem = {
 }
 
 const changeBufferMenuItem = {
-    label: 'Switch buffer…',
+    label: '切换笔记…',
     accelerator: 'CommandOrControl+P',
     click: (menuItem, window, event) => {
         window?.webContents.send(CHANGE_BUFFER_EVENT)
@@ -62,7 +62,7 @@ const template = [
         label: app.name,
         submenu: [
             {
-                label: 'About', 
+                label: '关于', 
                 click: (menuItem, window, event) => {
                     // open about window
                     openAboutWindow()
@@ -71,7 +71,7 @@ const template = [
             { type: 'separator' },
             changeBufferMenuItem,
             {
-                label: 'Settings',
+                label: '设置',
                 click: (menuItem, window, event) => {
                     window?.webContents.send(OPEN_SETTINGS_EVENT)
                 },
@@ -91,13 +91,13 @@ const template = [
         submenu: [
             changeBufferMenuItem,
             {
-                label: 'Settings',
+                label: '设置',
                 click: (menuItem, window, event) => {
                     window?.webContents.send(OPEN_SETTINGS_EVENT)
                 },
             },
             {
-                label: 'About', 
+                label: '关于', 
                 click: (menuItem, window, event) => {
                     // open about window
                     openAboutWindow()
@@ -113,7 +113,7 @@ const template = [
     },*/
     // { role: 'editMenu' }
     {
-        label: 'Edit',
+        label: '编辑',
         submenu: [
             undoMenuItem,
             redoMenuItem,
@@ -130,7 +130,7 @@ const template = [
                 selectAllMenuItem,
                 { type: 'separator' },
                 {
-                    label: 'Speech',
+                    label: '语音',
                     submenu: [
                         { role: 'startSpeaking' },
                         { role: 'stopSpeaking' }
@@ -145,7 +145,7 @@ const template = [
     },
     // { role: 'viewMenu' }
     {
-        label: 'View',
+        label: '视图',
         submenu: [
             { role: 'reload' },
             { role: 'forceReload' },
@@ -169,7 +169,7 @@ const template = [
     },
     // { role: 'windowMenu' }
     {
-        label: 'Window',
+        label: '窗口',
         submenu: [
             { role: 'minimize' },
             { role: 'zoom' },
@@ -187,14 +187,14 @@ const template = [
         role: 'help',
         submenu: [
             {
-                label: 'Documentation',
+                label: '文档',
                 click: async () => {
                     const { shell } = require('electron')
                     await shell.openExternal('https://heynote.com/docs/')
                 }
             },
             {
-                label: 'Website',
+                label: '网站',
                 click: async () => {
                     const { shell } = require('electron')
                     await shell.openExternal('https://heynote.com')
@@ -210,7 +210,7 @@ export const menu = Menu.buildFromTemplate(template)
 export function getTrayMenu(win) {
     return Menu.buildFromTemplate([
         {
-            label: 'Open Heynote',
+            label: '打开 Heynote',
             click: () => {
                 win.show()
             },
@@ -219,7 +219,7 @@ export function getTrayMenu(win) {
         ...template,
         { type: 'separator' },
         {
-            label: 'Quit',
+            label: '退出',
             click: () => {
                 quit()
             },
@@ -251,13 +251,13 @@ export function getTabContextMenu(win, tabPath) {
     if (!isScratchFile) {
         menuItems.push(
             {
-                label: 'Edit Buffer',
+                label: '编辑笔记',
                 click: () => {
                     win?.webContents.send('tab:editBuffer', tabPath)
                 },
             },
             {
-                label: 'Delete Buffer',
+                label: '删除笔记',
                 click: () => {
                     win?.webContents.send('tab:deleteBuffer', tabPath)
                 },
@@ -267,20 +267,20 @@ export function getTabContextMenu(win, tabPath) {
 
     menuItems.push(
         {
-            label: 'Open Buffer…',
+            label: '打开笔记…',
             click: () => {
                 win?.webContents.send('tab:openNew')
             },
         },
         {
-            label: 'New Buffer…',
+            label: '新建笔记…',
             click: () => {
                 win?.webContents.send('tab:createNew')
             },
         },
         {type: 'separator'},
         {
-            label: 'Close Tab',
+            label: '关闭标签页',
             click: () => {
                 win?.webContents.send('tab:close', tabPath)
             },

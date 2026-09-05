@@ -5,88 +5,87 @@
 
 <img src="https://heynote.com/img/logo.png" style="width:79px;">
 
-## General Information
+## 基本信息
 
-- [Website](https://heynote.com)
-- [Documentation](https://heynote.com/docs/)
-- [Changelog](https://heynote.com/docs/changelog/)
+- [官网](https://heynote.com)
+- [文档](https://heynote.com/docs/)
+- [更新日志](https://heynote.com/docs/changelog/)
 
-Heynote is a dedicated scratchpad for developers and power users. It functions as a large persistent text buffer where you can write down anything you like. Works great for that Slack message you don't want to accidentally send, a JSON response from an API you're working with, notes from a meeting, your daily to-do list, etc. 
+Heynote 是一款专为开发者和高级用户打造的便签本。它就像一个大型的持久化文本缓冲区，你可以随手记录任何内容。非常适合用来写那条不想误发的 Slack 消息、调试接口时的 JSON 响应、会议笔记、每日待办清单等等。
 
-Heynote buffers is divided into blocks, and each block can have its own Language set (e.g. JavaScript, JSON, Markdown, etc.). This gives you syntax highlighting and lets you auto-format that JSON response.
+Heynote 的缓冲区划分为多个区块（Block），每个区块都可以设置自己的语言（如 JavaScript、JSON、Markdown 等）。这让你可以获得语法高亮，还能自动格式化 JSON 响应。
 
-Available for Mac, Windows, and Linux.
+支持 Mac、Windows 和 Linux。
 
-## Features
+## 功能特性
 
--   Persistent text buffer(s)
--   Block-based
--   Inline images
--   Multiple buffers in tabs
--   Math/Calculator mode
--   Currency conversion
--   Syntax highlighting:
+-   持久化文本缓冲区
+-   基于区块（Block）组织内容
+-   内联图片
+-   多笔记多标签页
+-   数学/计算器模式
+-   货币换算
+-   语法高亮：
 
-    C++, C#, Clojure, CSS, Elixir, Erlang, Dart, Go, Groovy, HTML, Java, JavaScript, JSX, Kotlin, TypeScript, TOML, TSX, JSON, Lezer, Markdown, Mermaid, PHP, Python, Ruby, Rust, Scala, Shell, SQL, Swift, Vue, XML, YAML
-    
--   Language auto-detection
--   Auto-formatting
--   Multi-cursor editing
--   Dark & Light themes
--   Option to set a global hotkey to show/hide the app
--   Default, Emacs-like or custom key bindings
--   Spellchecking
+    C++、C#、Clojure、CSS、Elixir、Erlang、Dart、Go、Groovy、HTML、Java、JavaScript、JSX、Kotlin、TypeScript、TOML、TSX、JSON、Lezer、Markdown、PHP、Python、Ruby、Rust、Scala、Shell、SQL、Swift、Vue、XML、YAML
+
+-   语言自动检测
+-   自动格式化
+-   多光标编辑
+-   深色与浅色主题
+-   可设置显示/隐藏应用的全局快捷键
+-   默认、类 Emacs 或自定义按键绑定
+-   拼写检查
 
 
-## Documentation
+## 文档
 
-[Documentation](https://heynote.com/docs/) is available on the Heynote website.
+[文档](https://heynote.com/docs/)发布在 Heynote 官网上。
 
-## Development
+## 开发
 
-To develop Heynote you need Node.js and you should (hopefully) just need to check out the code and then run:
+开发 Heynote 需要 Node.js，通常只需检出代码后运行：
 
 ```
 > npm install
 > npm run dev
 ```
 
-### Run Tests
+### 运行测试
 
-To run the tests:
+运行测试：
 
 ```
 > npm run test
 ```
 
-To run the tests in the Playwright UI:
+在 Playwright UI 中运行测试：
 
 ```
 > npm run test:ui
 ```
 
 
-### Contributions
+### 参与贡献
 
-I'm happy to merge contributions that fit my vision for the app. Bug fixes are always welcome. 
-
-
-## FAQ
-
-### Where is the buffer data stored?
-
-See the [documentation](https://heynote.com/docs/#user-content-the-notes-library).
-
-### Can you make a mobile app?
-
-No, at the moment this is out of scope, sorry.
-
-### What are the default keyboard shortcuts?
-
-See the [documentation](https://heynote.com/docs/#user-content-default-key-bindings).
+欢迎提交符合我对这款应用愿景的贡献，Bug 修复随时欢迎。
 
 
-## Thanks!
+## 常见问题（FAQ）
 
-Heynote is built upon [CodeMirror](https://codemirror.net/), [Vue](https://vuejs.org/), [Electron](https://www.electronjs.org/), [Math.js](https://mathjs.org/), [Prettier](https://prettier.io/) and other great open-source projects.
+### 笔记数据存储在哪里？
 
+参见[文档](https://heynote.com/docs/#user-content-the-notes-library)。
+
+### 会开发移动版应用吗？
+
+不会，目前这不在计划范围内，抱歉。
+
+### 默认快捷键有哪些？
+
+参见[文档](https://heynote.com/docs/#user-content-default-key-bindings)。
+
+
+## 致谢！
+
+Heynote 基于 [CodeMirror](https://codemirror.net/)、[Vue](https://vuejs.org/)、[Electron](https://www.electronjs.org/)、[Math.js](https://mathjs.org/)、[Prettier](https://prettier.io/) 以及其他优秀的开源项目构建。

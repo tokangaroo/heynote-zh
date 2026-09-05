@@ -53,7 +53,7 @@
   },
 
   linux: {
-    synopsis: "A dedicated scratchpad for developers",
+    synopsis: "开发者的专属便签本",
     category: "Utility",
   },
   appImage: {

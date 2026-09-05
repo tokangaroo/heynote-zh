@@ -138,7 +138,7 @@ export function changeLanguageTo(state, dispatch, block, language, auto) {
             annotations: [heynoteEvent.of(LANGUAGE_CHANGE)],
         }))
     } else {
-        throw new Error("Invalid delimiter: " + state.doc.sliceString(block.delimiter.from, block.delimiter.to))
+        throw new Error("无效的区块分隔符: " + state.doc.sliceString(block.delimiter.from, block.delimiter.to))
     }
 }
 

@@ -13,7 +13,7 @@ export function indentation(indentType, tabSize) {
     } else if (indentType === "space") {
         unit = indentUnit.of(" ".repeat(tabSize))
     } else {
-        throw new Error("Invalid indent type")
+        throw new Error("无效的缩进类型")
     }
     return [
         unit, 

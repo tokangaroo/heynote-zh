@@ -221,8 +221,8 @@ export class HeynoteEditor {
             this.setReadOnly(false)
         } catch (e) {
             this.setReadOnly(true)
-            this.errorStore.addError(`Failed to load note: ${e.message}`)
-            throw new Error(`Failed to load note: ${e.message}`)
+            this.errorStore.addError(`加载笔记失败：${e.message}`)
+            throw new Error(`加载笔记失败：${e.message}`)
         }
         this.name = this.note.metadata?.name || this.path
         
