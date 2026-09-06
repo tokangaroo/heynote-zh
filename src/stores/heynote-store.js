@@ -3,9 +3,9 @@ import { defineStore } from "pinia"
 import { NoteFormat } from "../common/note-format"
 import { toSafeBrowserLocale } from "../util/locale.js"
 import { useEditorCacheStore } from "./editor-cache"
-import { 
-    SCRATCH_FILE_NAME, WINDOW_FULLSCREEN_STATE, WINDOW_FOCUS_STATE, 
-    SAVE_TABS_STATE, LOAD_TABS_STATE, CONTEXT_MENU_CLOSED 
+import {
+    SCRATCH_FILE_NAME, SCRATCH_DISPLAY_NAME, WINDOW_FULLSCREEN_STATE, WINDOW_FOCUS_STATE,
+    SAVE_TABS_STATE, LOAD_TABS_STATE, CONTEXT_MENU_CLOSED
 } from "../common/constants"
 
 
@@ -164,6 +164,10 @@ export const useHeynoteStore = defineStore("heynote", {
         },
 
         getBufferTitle(path) {
+            // 已存在的 scratch.txt 元数据里可能仍是旧名 "Scratch"，统一映射为中文显示名
+            if (path === SCRATCH_FILE_NAME) {
+                return SCRATCH_DISPLAY_NAME
+            }
             if (this.buffers[path]) {
                 return this.buffers[path].name || path
             }

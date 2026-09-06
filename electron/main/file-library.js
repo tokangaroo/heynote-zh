@@ -406,7 +406,7 @@ export async function migrateBufferFileToLibrary(app) {
         if (!metadata || !metadata.name) {
             console.log("Adding metadata to", filePath)
             const note = NoteFormat.load(jetpack.read(filePath))
-            note.metadata.name = "Scratch"
+            note.metadata.name = "草稿本"
             jetpack.write(filePath, note.serialize())
         } else {
             console.log("Metadata already exists for", filePath)

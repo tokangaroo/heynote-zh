@@ -133,7 +133,7 @@ function migrateBufferFileToLibrary() {
     if (!metadata || !metadata.name) {
         console.log("Adding metadata to Scratch note")
         const note = NoteFormat.load(content)
-        note.metadata.name = "Scratch"
+        note.metadata.name = "草稿本"
         content = note.serialize()
     }
     localStorage.setItem("heynote-library__scratch.txt", content)
@@ -150,7 +150,7 @@ const Heynote = {
         async load(path) {
             //console.log("loading", path)
             const content = localStorage.getItem(noteKey(path))
-            return content === null ? '{"formatVersion":"1.0.0","name":"Scratch"}\n∞∞∞text-a;created=' + (new Date()).toISOString() + '\n' : content
+            return content === null ? '{"formatVersion":"1.0.0","name":"草稿本"}\n∞∞∞text-a;created=' + (new Date()).toISOString() + '\n' : content
         },
 
         async save(path, content) {
@@ -192,7 +192,7 @@ const Heynote = {
                 }
             }
             if (notes["scratch.txt"] === undefined) {
-                notes["scratch.txt"] = {name: "Scratch"}
+                notes["scratch.txt"] = {name: "草稿本"}
             }
             return notes
         },

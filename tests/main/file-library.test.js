@@ -87,7 +87,7 @@ describe("FileLibrary", () => {
         const { FileLibrary } = await loadFileLibrary()
         library = new FileLibrary(tmpDir, {})
         await expect(library.delete(SCRATCH_FILE_NAME)).rejects.toThrow(
-            "Can't delete scratch file"
+            "无法删除草稿文件"
         )
     })
 

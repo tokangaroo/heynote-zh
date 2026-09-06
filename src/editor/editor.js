@@ -27,7 +27,7 @@ import { links } from "./links.js"
 import { indentation } from "./indentation.js"
 import { HEYNOTE_COMMANDS } from "./commands.js";
 import { NoteFormat } from "../common/note-format.js"
-import { AUTO_SAVE_INTERVAL } from "../common/constants.js"
+import { AUTO_SAVE_INTERVAL, SCRATCH_FILE_NAME, SCRATCH_DISPLAY_NAME } from "../common/constants.js"
 import { useHeynoteStore } from "../stores/heynote-store.js";
 import { useErrorStore } from "../stores/error-store.js";
 import { foldGutterExtension } from "./fold-gutter.js"
@@ -229,7 +229,9 @@ export class HeynoteEditor {
             this.errorStore.addError(`加载笔记失败：${e.message}`)
             throw new Error(`加载笔记失败：${e.message}`)
         }
-        this.name = this.note.metadata?.name || this.path
+        this.name = this.path === SCRATCH_FILE_NAME
+            ? SCRATCH_DISPLAY_NAME
+            : (this.note.metadata?.name || this.path)
         
         return new Promise((resolve) => {
             // set buffer content

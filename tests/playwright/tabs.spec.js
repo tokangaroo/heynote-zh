@@ -131,7 +131,7 @@ test("closing last non-scratch tab opens scratch buffer", async ({ page }) => {
     
     await page.waitForTimeout(300)
     expect(await page.locator('.tab-item').count()).toBe(1)
-    expect(await page.locator('.tab-item .title').textContent()).toContain("Scratch")
+    expect(await page.locator('.tab-item .title').textContent()).toContain("草稿本")
 })
 
 test("open new tab via keyboard shortcut", async ({ page }) => {
@@ -181,7 +181,7 @@ test("reorder tabs by dragging and verify order persistence", async ({ page, bro
     await page.waitForTimeout(1000)
     
     // Use hardcoded titles for reliable testing
-    const scratchTitle = 'Scratch'
+    const scratchTitle = '草稿本'
     const buffer1Title = 'Buffer 1' 
     const buffer2Title = 'Buffer 2'
     

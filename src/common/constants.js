@@ -1,4 +1,6 @@
 export const SCRATCH_FILE_NAME = "scratch.txt"
+// 默认草稿笔记的显示名（scratch.txt 的元数据不可通过 UI 编辑，故显示名统一由此常量控制）
+export const SCRATCH_DISPLAY_NAME = "草稿本"
 export const AUTO_SAVE_INTERVAL = 2000
 
 export const WINDOW_CLOSE_EVENT = "window-close"

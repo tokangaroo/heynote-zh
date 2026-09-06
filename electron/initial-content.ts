@@ -4,7 +4,7 @@ import { keyHelpStr } from "../shared-utils/key-helper";
 const created = (new Date()).toISOString()
 
 export const initialContent = `
-{"formatVersion":"1.0.0","name":"Scratch"}
+{"formatVersion":"1.0.0","name":"草稿本"}
 ∞∞∞text;created=${created}
 欢迎使用 Heynote！👋
 

@@ -2,7 +2,7 @@
     import fuzzysort from 'fuzzysort'
 
     import { mapState, mapActions } from 'pinia'
-    import { SCRATCH_FILE_NAME } from "../common/constants"
+    import { SCRATCH_FILE_NAME, SCRATCH_DISPLAY_NAME } from "../common/constants"
     import { useHeynoteStore } from "../stores/heynote-store"
     import { useSettingsStore } from "../stores/settings-store"
     import { HEYNOTE_COMMANDS } from "../editor/commands"
@@ -158,7 +158,7 @@
                 this.items = Object.entries(this.buffers).map(([path, metadata]) => {
                     return {
                         "path": path,
-                        "name": escapeHTML(metadata?.name || path),
+                        "name": escapeHTML(path === SCRATCH_FILE_NAME ? SCRATCH_DISPLAY_NAME : (metadata?.name || path)),
                         "folder": escapeHTML(path.split(pathSep).slice(0, -1).join(pathSep)),
                         "scratch": path === SCRATCH_FILE_NAME,
                     }

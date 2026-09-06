@@ -84,6 +84,7 @@ You can see all the key bindings in the command palette and in Settings under Ke
 
 
 
+
 ## 自定义按键绑定<a id="custom-key-bindings"></a>
 
 Heynote 支持自定义按键绑定，你可以在设置中进行配置。按键绑定按从上到下的顺序生效，排在前面的绑定优先级更高。大多数命令会阻止事件继续传播，但有些命令只在特定上下文中生效，可能不会阻止事件传播到后面的按键绑定。
