@@ -4,6 +4,8 @@
 {
   "appId": "com.heynote.app",
   "asar": true,
+  // tag 构建时以正式 Release（而非草稿）方式发布，可挂载到已存在的同名 Release
+  "publish": [{ "provider": "github", "releaseType": "release" }],
   "asarUnpack": [
     "**/node_modules/@vscode/ripgrep/bin/**"
   ],
@@ -52,6 +54,8 @@
   linux: {
     synopsis: "开发者的专属便签本",
     category: "Utility",
+    // deb 打包必填 maintainer（package.json 的 author 无邮箱）
+    "maintainer": "tokangaroo <tokangaroo@outlook.com>",
     // 架构由 CLI 参数控制（--x64 / --arm64），便于构建期间切换 ripgrep 二进制架构
     target: [
       "AppImage",
