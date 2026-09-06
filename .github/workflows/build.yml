@@ -25,6 +25,9 @@ jobs:
     env:
       # electron-builder 在 tag 推送时自动发布到 GitHub Releases
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # @vscode/ripgrep 的 postinstall 下载 rg 时调用 GitHub API，
+      # 注入 token 避免 CI 出口 IP 触发 403 限流（变量名必须是 GITHUB_TOKEN）
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Check out Git repository
@@ -33,7 +36,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
