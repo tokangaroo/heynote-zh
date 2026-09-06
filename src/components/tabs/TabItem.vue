@@ -10,19 +10,7 @@
             "active",
             "path",
         ],
-        data() {
-            return {
-                textWidth: 0,
-            }
-        },
-        mounted: function() {
-            this.measureTextWidth()
-        },
         watch: {
-            title() {
-                this.measureTextWidth()
-            },
-
             active: {
                 handler(isActive) {
                     if (isActive) {
@@ -44,26 +32,10 @@
                 return [
                     "tab-item",
                     ...(this.active ? ["active"] : []),
-                    ...[this.textWidth > 120 ? "long" : "short"],
                 ]
             },
         },
         methods: {
-            measureTextWidth() {
-                // measure the width of the tab which we use to give it either the "short" or "long" class
-                const temp = document.createElement('span')
-                temp.style.visibility = 'hidden'
-                temp.style.position = 'absolute'
-                temp.style.whiteSpace = 'nowrap'
-                temp.style.padding = window.getComputedStyle(this.$el).padding
-                temp.style.font = window.getComputedStyle(this.$el).font
-                temp.textContent = this.$el.textContent
-                document.body.appendChild(temp)
-                this.textWidth = temp.offsetWidth
-                document.body.removeChild(temp)
-                //console.log("textWidth:", this.textWidth)
-            },
-
             onClose() {
                 this.heynoteStore.closeTab(this.path)
             },
@@ -119,11 +91,8 @@
             color: rgba(255, 255, 255, 0.4)
             background: rgba(255, 255, 255, 0.06)
             border-color: rgba(255, 255, 255, 0.14)
-        &.short
-            width: 120px
-        &.long
-            width: max-content
-            max-width: 300px
+        // 固定宽度，长标题用省略号截断
+        width: 120px
         &.active
             background: var(--tab-active-bg)
             color: rgba(0,0,0, 0.9)
