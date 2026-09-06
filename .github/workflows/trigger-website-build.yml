@@ -1,4 +1,4 @@
-name: Trigger Website Build
+name: Webhook
 
 on:
   push:
