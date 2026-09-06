@@ -34,16 +34,12 @@
     "x64ArchFiles": "**/node_modules/@vscode/ripgrep/bin/rg",
   },
   "win": {
+    // 架构由 CLI 参数控制（--x64 / --arm64），便于构建期间切换 ripgrep 二进制架构
     "target": [
-      {
-        "target": "nsis",
-        "arch": [
-          "x64"
-        ]
-      },
+      "nsis",
       "zip"
     ],
-    "artifactName": "${productName}_${version}.${ext}",
+    "artifactName": "Heynote_zh_${version}_win_${arch}.${ext}",
     "icon": "public/icon.ico"
   },
   "nsis": {
@@ -56,9 +52,17 @@
   linux: {
     synopsis: "开发者的专属便签本",
     category: "Utility",
+    // 架构由 CLI 参数控制（--x64 / --arm64），便于构建期间切换 ripgrep 二进制架构
+    target: [
+      "AppImage",
+      "deb",
+    ],
   },
   appImage: {
-    artifactName: "${productName}_${version}_${arch}.${ext}",
+    artifactName: "Heynote_zh_${version}_linux_${arch}.${ext}",
+  },
+  deb: {
+    artifactName: "Heynote_zh_${version}_linux_${arch}.${ext}",
   },
   snap: {
     artifactName: "${productName}_${version}_${arch}.${ext}",
